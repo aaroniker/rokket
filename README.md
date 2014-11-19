@@ -2,4 +2,4 @@
 
 ========
 
-Gameserver Webinterface for Counter-Strike Server
+Gameserver Webinterface
