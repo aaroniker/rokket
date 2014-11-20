@@ -1,0 +1,80 @@
+{
+	
+	"lang": 						"English",
+	"dateformat":				"m/d/Y",
+	
+	#General
+	"yes":							"Yes",
+	"no":							"No",
+	"name":						"Name",
+	"online":						"Online",
+	"offline":						"Offline",
+	"action":						"Action",
+	"actions":					"Actions",
+	"title":							"Titel",
+	"select":						"Choose",
+	"selected":					"Selected",
+	"description":			"Description",
+	"access_denied":	"Access denied!",
+	
+	#Actions
+	"update":			"Update",
+	"create":				"Create",
+	"add":					"Add",
+	"edit":					"Edit",
+	"delete":				"Delete",
+	"save":				"Save",
+	"back":				"Back",
+	"apply":				"Apply",
+	"try_again":		"Try again",
+	"logout":				"Logout",
+	"login":				"Login",
+	
+	#Server
+	"server":				"Server",
+	
+	#Games
+	"games":			"Games",
+	
+	#User
+	"user":					"User",
+	"user_edited":			"User edited successfully",
+	"username":			"Username",
+	"profile":					"Profile",
+	"email":					"Email",
+	"rights":					"Rights",
+	"firstname":			"Firstname",
+	"password":			"Password",
+	"only_change":		"This is the encrypted password, simply enter a new one.",
+	
+	#Settings
+	"settings":				"Settings",
+	"general":				"General",
+	"cache":					"Cache",
+	"gen_css":				"Generate .css",
+	"clear_all":				"Clear all",
+	"delete_cache_success":		"Cache successful cleared",
+	"generate_css_success":		"New style.css generated",
+	
+	#Search
+	"search":				"Search",
+	
+	#Dashboard
+	"dashboard":			"Dashboard",
+	
+	#Login
+	"remember_login":		"Remember login",
+	"fill_out_both":				"Please fill out both fields",
+	"wrong_pw":					"Wrong password",
+	"email_not_found":		"Email <i>%s</i> not found",
+	"logged_out":				"Successfully logged out",
+	
+	#SQL
+	"sql_query_error":				"Query could not be executed<pre>%s</pre>Error: %s",
+	"sql_result_invalid_type":	"%s::result expected result as $type MYSQLI_NUM, MYSQLI_ASSOC or MYSQLI_BOTH",
+	"sql_result_error":				"Result of the query could not be created",
+	
+	#Extension
+	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function"
+	
+}
