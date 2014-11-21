@@ -14,17 +14,17 @@ if(version_compare(PHP_VERSION, 5.4) < 0) {
 	exit();
 }
 
-//
+/*
 set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
 include('lib/vendor/phpseclib/Net/SSH2.php');
 
-$ssh = new Net_SSH2('84.200.68.229:0140');
-if (!$ssh->login('aaron', 'undertakerlesnar123')) {
+$ssh = new Net_SSH2('');
+if (!$ssh->login('', '')) {
     exit('Login Failed');
 }
 
 echo $ssh->exec('cd ..; ls');
-//
+*/
 
 include('lib/classes/dir.php');
 
@@ -49,6 +49,12 @@ lang::setLang(rp::get('lang'));
 
 $DB = rp::get('DB');
 sql::connect($DB['host'], $DB['user'], $DB['password'], $DB['database']);
+
+
+$SSH = rp::get('SSH');
+$SSH['ip'];
+$SSH['user'];
+$SSH['password'];
 
 ob_start();
 

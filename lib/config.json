@@ -1,5 +1,5 @@
 {
-    "name": "Rokket Panel",
+	"name": "Rokket Panel",
     "url": "http:\/\/server.broken-gaming.de",
     "version": "0.1",
     "setup": false,
@@ -12,6 +12,12 @@
         "database": "",
         "prefix": null
     },
+	"SSH": {
+			"ip":	"",
+			"port": "",
+			"user": "",
+			"password": ""
+	},
     "timezone": "Europe\/Berlin",
     "logincookie": 86400,
     "lang": "en_gb",
