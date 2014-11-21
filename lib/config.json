@@ -12,6 +12,12 @@
         "database": "",
         "prefix": null
     },
+    "SSH": {
+        "host": "",
+        "port": "",
+        "user": "",
+        "password": ""
+    },
     "timezone": "Europe\/Berlin",
     "logincookie": 86400,
     "lang": "en_gb",
