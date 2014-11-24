@@ -13,8 +13,7 @@
         "prefix": null
     },
 	"SSH": {
-			"ip":	"",
-			"port": "",
+			"host":	"",
 			"user": "",
 			"password": ""
 	},
