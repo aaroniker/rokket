@@ -142,7 +142,8 @@ class autoload {
 		
 		self::$classes[$class] = $path;
 		
-		include($path);
+		if($path)
+			include($path);
 		
 	}
 	
