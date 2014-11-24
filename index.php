@@ -1,6 +1,6 @@
 <?php
 
-//https://github.com/phpseclib/phpseclib
+ob_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -13,18 +13,6 @@ if(version_compare(PHP_VERSION, 5.4) < 0) {
 	echo 'PHP 5.4 or higher needed!';
 	exit();
 }
-
-/*
-set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
-include('lib/vendor/phpseclib/Net/SSH2.php');
-
-$ssh = new Net_SSH2('');
-if (!$ssh->login('', '')) {
-    exit('Login Failed');
-}
-
-echo $ssh->exec('cd ..; ls');
-*/
 
 include('lib/classes/dir.php');
 
@@ -50,13 +38,8 @@ lang::setLang(rp::get('lang'));
 $DB = rp::get('DB');
 sql::connect($DB['host'], $DB['user'], $DB['password'], $DB['database']);
 
-
 $SSH = rp::get('SSH');
-$SSH['ip'];
-$SSH['user'];
-$SSH['password'];
-
-ob_start();
+ssh::connect($SSH['ip'], $SSH['user'], $SSH['password']);
 
 date_default_timezone_set(rp::get('timezone', 'Europe/Berlin'));
 

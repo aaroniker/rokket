@@ -69,6 +69,9 @@
 	"email_not_found":		"Email <i>%s</i> not found",
 	"logged_out":				"Successfully logged out",
 	
+	#SSH
+	"ssh_login_failed":			"SSH login failed",
+	
 	#SQL
 	"sql_query_error":				"Query could not be executed<pre>%s</pre>Error: %s",
 	"sql_result_invalid_type":	"%s::result expected result as $type MYSQLI_NUM, MYSQLI_ASSOC or MYSQLI_BOTH",
