@@ -6,14 +6,14 @@
     "debug": true,
     "cache": false,
     "DB": {
-        "host": "localhost",
+        "host": "",
         "user": "",
         "password": "",
         "database": "",
         "prefix": null
     },
 	"SSH": {
-			"host":	"",
+			"ip":	"",
 			"user": "",
 			"password": ""
 	},
