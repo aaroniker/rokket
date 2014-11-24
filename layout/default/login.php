@@ -2,7 +2,7 @@
 
 	<div id="login" class="animated <?=(!is_null(type::post('login', 'string'))) ? 'shake' : ''; ?>">
     
-        <a class="logo" href="/">
+        <a class="logo" href="http://rokket.info" target="_blank">
         	<?=layout::svg('rocket-panel'); ?>
         </a>
         

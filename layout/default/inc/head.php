@@ -4,7 +4,7 @@
 
 <meta charset="UTF-8">
 
-<title>Server</title>
+<title><?=layout::getPage(); ?> - Rokket Webinterface</title>
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,300">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">

@@ -21,7 +21,7 @@
             
             <section id="left">
                 
-                <a class="logo" href="/">
+                <a class="logo" href="http://rokket.info" target="_blank">
                     <?=layout::svg('rocket-panel'); ?>
                 </a>
                 
