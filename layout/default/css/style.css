@@ -57,7 +57,7 @@ span.error {
   color: #df5452;
 }
 span.info {
-  color: #fbd160;
+  color: #60a2fb;
 }
 .button,
 button {
@@ -110,7 +110,7 @@ button:hover {
   background: #df5452;
 }
 .message.info {
-  background: #fbd160;
+  background: #60a2fb;
 }
 .clear {
   clear: both;
