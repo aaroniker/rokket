@@ -16,6 +16,7 @@
 	"selected":					"Selected",
 	"description":			"Description",
 	"access_denied":	"Access denied!",
+	"page_not_found":	"Page not found",
 	
 	#Actions
 	"update":			"Update",

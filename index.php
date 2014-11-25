@@ -41,6 +41,8 @@ sql::connect($DB['host'], $DB['user'], $DB['password'], $DB['database']);
 $SSH = rp::get('SSH');
 ssh::connect($SSH['ip'], $SSH['user'], $SSH['password']);
 
+unset($DB, $SSH);
+
 date_default_timezone_set(rp::get('timezone', 'Europe/Berlin'));
 
 new userLogin();
@@ -67,6 +69,9 @@ if(userLogin::isLogged()) {
 	
 	if(file_exists($path))
 		include($path);
+	else
+		echo message::danger(lang::get('page_not_found'), false);
+	
 }
 
 $content = ob_get_contents();
