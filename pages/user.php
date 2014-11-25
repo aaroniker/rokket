@@ -2,6 +2,9 @@
 	if($action == 'edit' && $id) {
 		
 		if(isset($_POST['send'])) {
+		
+			$sqlUser = new sql();
+			$sqlUser->result("SELECT * FROM ".sql::table('user')." WHERE id = '".$sqlUser->escape($id)."'");
 			
 			$perms = json_decode(type::post('rights'));
 			
@@ -19,6 +22,13 @@
 			$sql->setWhere('id='.$id);
 			
 			$sql->addPost('perms', implode('|', $rights));
+			$sql->addPost('firstname', type::post('firstname'));
+			$sql->addPost('name', type::post('name'));
+			$sql->addPost('email', type::post('email'));
+			$sql->addPost('username', type::post('username'));
+			
+			if(type::post('password') && type::post('password') != $sqlUser->get('password'))
+				$sql->addPost('password', userLogin::hash(type::post('password'), $sqlUser->get('salt')));
 			
 			$sql->update();
 			
@@ -61,14 +71,14 @@
                     <div class="col-md-6">
                         <div class="input">
                             <label><?=lang::get('firstname'); ?></label>
-                            <input type="text" value="<?=$sql->get('firstname'); ?>">
+                            <input type="text" name="firstname" value="<?=$sql->get('firstname'); ?>">
                         </div>
                     </div>
                 
                     <div class="col-md-6">
                         <div class="input">
                             <label><?=lang::get('name'); ?></label>
-                            <input type="text" value="<?=$sql->get('name'); ?>">
+                            <input type="text" name="name" value="<?=$sql->get('name'); ?>">
                         </div>
                     </div>
                 </div>
@@ -77,14 +87,14 @@
                     <div class="col-md-6">
                         <div class="input">
                             <label><?=lang::get('email'); ?></label>
-                            <input type="text" value="<?=$sql->get('email'); ?>">
+                            <input type="text" name="email" value="<?=$sql->get('email'); ?>">
                         </div>
                     </div>
                 
                     <div class="col-md-6">
                         <div class="input">
                             <label><?=lang::get('username'); ?></label>
-                            <input type="text" value="<?=$sql->get('username'); ?>">
+                            <input type="text" name="username" value="<?=$sql->get('username'); ?>">
                         </div>
                     </div>
                 </div>
@@ -95,7 +105,7 @@
                     <div class="col-md-6">
                         <div class="input">
                             <label><?=lang::get('password'); ?></label>
-                            <input type="text" value="<?=$sql->get('password'); ?>">
+                            <input type="text" name="password" value="<?=$sql->get('password'); ?>">
                         </div>
                     </div>
                 </div>
