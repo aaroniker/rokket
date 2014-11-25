@@ -14,7 +14,8 @@ class layout {
 	
 	public static function getPage() {
 		$page = type::super('page', 'string', 'dashboard');
-		return self::$nav[$page]['name'];
+		
+		return (isset(self::$nav[$page]['name'])) ? self::$nav[$page]['name'] : '';
 	}
 	
 	public static function getNav() {
@@ -54,19 +55,23 @@ class layout {
 			'add'=> '<li '.$activeA.'><a href="?page='.$page.'&action=add">'.self::svg('add').'</a></li>',
 			'settings'=> '<li '.$activeS.'><a href="?page='.$page.'&action=settings">'.self::svg('settings').'</a></li>'
 		];
-		
-		$btn = self::$nav[$page]['buttons'];
-		
+			
 		$return = '';
 		
-		if(is_array($btn) && count($btn) >= 1) {
-			$return .= '<nav>';
-			$return .= '<ul>';
-			foreach($btn as $var) {
-				$return .= $buttons[$var];
+		if(isset($nav[$page])) {
+		
+			$btn = self::$nav[$page]['buttons'];
+			
+			if(is_array($btn) && count($btn) >= 1) {
+				$return .= '<nav>';
+				$return .= '<ul>';
+				foreach($btn as $var) {
+					$return .= $buttons[$var];
+				}
+				$return .= '</ul>';
+				$return .= '</nav>';
 			}
-			$return .= '</ul>';
-			$return .= '</nav>';
+		
 		}
 		
 		return $return;
