@@ -28,7 +28,23 @@
 	$sql = new sql();
 	$sql->result("SELECT * FROM ".sql::table('user')." WHERE id = '".$sql->escape($id)."'");
 	
+	$permTypes = ['server', 'games', 'user'];
+	
 	$perms = explode('|', $sql->get('perms'));
+	
+	$permsSplit = [];
+	
+	foreach($perms as $value) {
+			preg_match("~^(\w+)\[(\w+)\]$~", $value, $matches);
+			if(count($matches)) {       
+					$key = $matches[1];
+					if(!isset($permsSplit[$key]))
+							$permsSplit[$key] = array();
+	
+					$permsSplit[$key][] = $matches[2];
+			}
+	}
+	
 ?>
 
 <form action="" method="post" id="userForm">
@@ -102,24 +118,24 @@
                     <hr>
                 
                     <div class="row">
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <h3><?=lang::get('server'); ?></h3>
-                            <ul class="box" data-type="server">
-                            </ul>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <h3><?=lang::get('games'); ?></h3>
-                            <ul class="box" data-type="games">
-                            </ul>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <h3><?=lang::get('user'); ?></h3>
-                            <ul class="box" data-type="user">
-                            </ul>
-                        </div>
+                    
+                    	<?php
+							
+							foreach($permTypes as $val) {
+								
+								$entry = '';
+								
+								if(isset($permsSplit[$val]) && is_array($permsSplit[$val]))
+									foreach($permsSplit[$val] as $active)
+										$entry .= '<li data-action="'.$active.'">'.lang::get($active).'<span class="close">x</span></li>';
+								
+								echo '<div class="col-md-3 col-sm-6">';	
+								echo '<h3>'.lang::get($val).'</h3>';	
+								echo '<ul class="box" data-type="'.$val.'">'.$entry.'</ul>';
+								echo '</div>';	
+							}
+							
+						?>
                         
                     </div>
                 
