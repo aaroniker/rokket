@@ -4,11 +4,9 @@ class message {
 	
 	static protected function getMessage($message, $close, $class) {
 		
-		$return = '<div class="message '.$class.'">';
+		$close = ($close) ? ' close' : ''; 
 		
-		if($close) {
-			
-		}
+		$return = '<div class="message '.$class.$close.'">';
 		
 		$return .= $message;
 		
@@ -17,25 +15,25 @@ class message {
 		return $return;
 	}
 
-	static public function warning($message, $close = false) {
+	static public function warning($message, $close = true) {
 		
 		return self::getMessage($message, $close, 'warning');
 		
 	}
 	
-	static public function info($message, $close = false) {
+	static public function info($message, $close = true) {
 	
 	   return self::getMessage($message, $close, 'info');
 	   
 	}
 	
-	static public function danger($message, $close = false) {
+	static public function danger($message, $close = true) {
 	
 		return self::getMessage($message, $close, 'error');
 	
 	}
 	
-	static public function success($message, $close = false) {
+	static public function success($message, $close = true) {
 	
 		return self::getMessage($message, $close, 'success');
 	

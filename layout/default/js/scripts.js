@@ -40,7 +40,7 @@ $(document).ready(function() {
 	});
 
 	setTimeout(function() {
-		$('.message').slideUp(200);
+		$('.message.close').slideUp(200);
 	}, 3000 );
 	
 	$("#rights > ul > li").draggable({
