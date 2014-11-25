@@ -54,8 +54,13 @@ $(document).ready(function() {
 		accept: ":not(.ui-sortable-helper)",
 		drop: function(event, ui) {
 			$(this).find(".placeholder").remove();
-			$("<li></li>").html(ui.draggable.text() + '<span class="close">x</span>').appendTo(this);
-		}
+			$("<li></li>").html(ui.draggable.text() + '<span class="close">x</span>').appendTo(this).data('action', ui.draggable.data('action'));
+		},
+		accept: function (elm) {
+        	if ($(this).find('li[data-action="' + elm.data('action') + '"]').length == 0)
+        	    return true;
+        	return false;
+    	}
 	});
 	
 	$("#rights").on('click', '.close', function () {
@@ -63,9 +68,16 @@ $(document).ready(function() {
 	});
 	
 	$('#userForm').submit(function() {
-		$('#rights .box').each(function() {
-			
+		var result = {};
+		$('#rights ul.box').each(function() {
+			var type = $(this).data('type');
+        	var elements = [];
+        	$(this).find('li').each(function () {
+        	    elements.push($(this).data('action'));
+        	});
+        	result[type] = elements
 		});
+		$("#inputRights").val(JSON.stringify(result));
 	});
 	
 });

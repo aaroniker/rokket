@@ -3,11 +3,32 @@
 		
 		if(isset($_POST['send'])) {
 			
+			$perms = json_decode(type::post('rights'));
+			
+			$rights = [];
+			
+			foreach($perms as $key => $val) {
+				foreach($val as $var) {
+					$rights[] = $key.'['.$var.']';	
+				}
+			}
+			
+			$sql = new sql();
+			
+			$sql->setTable('user');
+			$sql->setWhere('id='.$id);
+			
+			$sql->addPost('perms', implode('|', $rights));
+			
+			$sql->update();
+			
 			echo message::success(lang::get('user_edited'));	
 		}
 		
 	$sql = new sql();
 	$sql->result("SELECT * FROM ".sql::table('user')." WHERE id = '".$sql->escape($id)."'");
+	
+	$perms = explode('|', $sql->get('perms'));
 ?>
 
 <form action="" method="post" id="userForm">
@@ -69,6 +90,8 @@
                 <h2><?=lang::get('rights'); ?></h2>
                         
                 <div id="rights">
+                    
+                    <input type="hidden" name="rights" id="inputRights">
                     
                     <ul>
                         <li data-action="create"><?=lang::get('create'); ?></li>
