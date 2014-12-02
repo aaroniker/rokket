@@ -58,7 +58,7 @@ class layout {
 			
 		$return = '';
 		
-		if(isset($nav[$page])) {
+		if(isset(self::$nav[$page])) {
 		
 			$btn = self::$nav[$page]['buttons'];
 			
