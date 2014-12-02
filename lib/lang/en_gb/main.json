@@ -47,6 +47,7 @@
 	"firstname":			"Firstname",
 	"password":			"Password",
 	"only_change":		"This is the encrypted password, simply enter a new one.",
+	"admin":					"Admin",
 	
 	#Settings
 	"settings":				"Settings",
@@ -56,12 +57,38 @@
 	"clear_all":				"Clear all",
 	"delete_cache_success":		"Cache successful cleared",
 	"generate_css_success":		"New style.css generated",
+	"logs":						"Logs",
+	"language":			"Language",
+	"lang_select":			"Select language",
+	"settings_edited":	"Settings edited successfully",
+	"email_notifcation":"Email notification",
+	"notifications":	"Notifications",
+	"ip":				"IP",
 	
 	#Search
 	"search":				"Search",
 	
 	#Dashboard
 	"dashboard":			"Dashboard",
+	
+	#Addon
+	"addons": "Addons",
+	"all_addons": "All addons",
+	"addon_save_success": "Addon successfully saved",
+	"addon_install_first": "Please install the addon \"%s\" first",
+	"addon_installed": "Installed",
+	"addon_not_installed": "Not installed",
+	"addon_actived": "Enabled",
+	"addon_not_actived": "Not enabled",
+	"addon_errors": "The addon %s has the following error:<br />%s",
+	"addon_check_error": "%s::check could not check %s",
+	"addon_wrong_version": "The current version is %s, the addon needs version %s",
+	"addon_no_access": "You have no access to this area",
+	"addon_not_found": "The addon %s was not found<br />",
+	"addon_not_install_active": "The addon %s must be installed and enabled<br />",
+	"addon_need_version": "The addon %s must be present at least in version %s<br />",
+	"addon_deleted": "The addon %s was successfully deleted",
+	"addon_no_readme": "No README.md exists",
 	
 	#Login
 	"remember_login":		"Remember login",

@@ -48,6 +48,7 @@
 	"firstname":			"Vorname",
 	"password":			"Passwort",
 	"only_change":		"Das ist das verschlüsselte Passwort, einfach ein neues eingeben.",
+	"admin":					"Admin",
 	
 	#Settings
 	"settings":				"Einstellungen",
@@ -57,12 +58,38 @@
 	"clear_all":				"Erneuern",
 	"delete_cache_success":		"Cache erfolgreich gelöscht",
 	"generate_css_success":		"Neue style.css Datei generiert",
+	"logs":						"Logs",
+	"language":			"Sprache",
+	"lang_select":		"Sprache wählen",
+	"settings_edited":	"Einstellungen erfolgreich bearbeitet",
+	"email_notifcation":"E-Mail Benachrichtigung",
+	"notifications":	"Benachrichtigungen",
+	"ip":				"IP",
 	
 	#Search
 	"search":				"Suche",
 	
 	#Dashboard
 	"dashboard":			"Dashboard",
+	
+	#Addon
+	"addons": "Addons",
+	"all_addons": "Alle Addons",
+	"addon_save_success": "Addon erfolgreich gespeichert",
+	"addon_install_first": "Bitte installieren Sie das Addon \"%s\" zuerst",
+	"addon_installed": "Installiert",
+	"addon_not_installed": "Nicht installiert",
+	"addon_actived": "Aktiviert",
+	"addon_not_actived": "Nicht aktiviert",
+	"addon_errors": "Das Addon %s hat folgende Fehler:<br />%s",
+	"addon_check_error": "%s::check konnte nicht %s überprüfen",
+	"addon_wrong_version": "Die Aktuelle Version ist %s das Addon braucht Version %s",
+	"addon_no_access": "Sie haben kein Zugriff auf diesen Bereich",
+	"addon_not_found": "Das Addon %s wurde nicht gefunden<br />",
+	"addon_not_install_active": "Das Addon %s muss installiert und aktiviert werden<br />",
+	"addon_need_version": "Das Addon %s muss mindestens in Version %s vorhanden sein<br />",
+	"addon_deleted": "Das Addon %s wurde erfolgreich gelöscht",
+	"addon_no_readme": "Keine README.md vorhanden",
 	
 	#Login
 	"remember_login":		"Login merken",
