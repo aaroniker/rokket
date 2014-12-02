@@ -50,6 +50,10 @@ rp::add('user', new user(userLogin::getUser()));
 
 cache::setCache(rp::get('cache'));
 
+addonConfig::loadAllConfig();
+addonConfig::includeAllLangFiles();
+addonConfig::includeAllLibs();
+
 $page = type::super('page', 'string', 'dashboard');
 $action = type::super('action', 'string');
 $id = type::super('id', 'int');
@@ -88,8 +92,7 @@ if(ajax::is()) {
 layout::addNav(lang::get('dashboard'), 'dashboard', 'home', [], false);
 layout::addNav(lang::get('settings'), 'settings', 'settings', [], false);
 
-layout::addNav(lang::get('server'), 'server', 'list', ['add', 'settings'], true);
-layout::addNav(lang::get('games'), 'games', 'game', [], true);
+layout::addNav(lang::get('server'), 'server', 'list', ['add'], true);
 layout::addNav(lang::get('user'), 'user', 'users', ['add'], true);
 
 if(userLogin::isLogged()) {	
