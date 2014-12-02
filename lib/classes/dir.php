@@ -58,10 +58,25 @@ class dir {
 
 	}
 	
+	public static function games($file = '', $cur = false) {
+		
+		if($cur)
+			return self::base('games'.DIRECTORY_SEPARATOR.$cur.DIRECTORY_SEPARATOR.$file);
+		
+		return self::base('games'.DIRECTORY_SEPARATOR.$file);
+
+	}
+	
 	public static function lang($lang, $file = '') {
 	
 		return self::base('lib'.DIRECTORY_SEPARATOR.'lang'.DIRECTORY_SEPARATOR.$lang.DIRECTORY_SEPARATOR.$file);
 	
+	}
+	
+	public static function addon($addon, $file = '') {
+
+		return self::base('addons'.DIRECTORY_SEPARATOR.$addon.DIRECTORY_SEPARATOR.$file);
+
 	}
 
 }
