@@ -1,0 +1,84 @@
+{
+	
+	"lang": 						"Italiano",
+	"dateformat":				"d/m/Y",
+	
+	#General
+	"yes":							"Si",
+	"no":							"No",
+	"name":						"Nome",
+	"online":						"Online",
+	"offline":						"Offline",
+	"action":						"Azione",
+	"actions":					"Azioni",
+	"title":							"Titolo",
+	"select":						"Scegli",
+	"selected":					"Selezionato",
+	"description":			"Descrizione",
+	"access_denied":	"Accesso rifiutato!",
+	"page_not_found":	"Pagina non trovata",
+	
+	#Actions
+	"update":			"Aggiorna",
+	"create":				"Crea",
+	"add":					"Aggiungi",
+	"edit":					"Modifica",
+	"delete":				"Elimina",
+	"save":				"Salva",
+	"back":				"Indietro",
+	"apply":				"Applica",
+	"try_again":		"Riprova",
+	"logout":				"Logout",
+	"login":				"Login",
+	
+	#Server
+	"server":				"Server",
+	
+	#Games
+	"games":			"Giochi",
+	
+	#User
+	"user":					"Utente",
+	"user_edited":			"Utente modificato con successo",
+	"username":			"Username",
+	"profile":					"Profilo",
+	"email":					"Email",
+	"rights":					"Permessi",
+	"firstname":			"Nome",
+	"password":			"Password",
+	"only_change":		"Questa password e' criptata, inseriscine una nuova.",
+	
+	#Settings
+	"settings":				"Impostazioni",
+	"general":				"Generale",
+	"cache":					"Cache",
+	"gen_css":				"Genera .css",
+	"clear_all":				"Pulisci tutto",
+	"delete_cache_success":		"Cache pulita con successo",
+	"generate_css_success":		"Nuovo style.css generato",
+	
+	#Search
+	"search":				"Cerca",
+	
+	#Dashboard
+	"dashboard":			"Dashboard",
+	
+	#Login
+	"remember_login":		"Ricorda login",
+	"fill_out_both":				"Inserisci tutti i campi",
+	"wrong_pw":					"Password errata",
+	"email_not_found":		"Email <i>%s</i> non trovata",
+	"logged_out":				"Disconnesso con successo",
+	
+	#SSH
+	"ssh_login_failed":			"Login SSH fallito",
+	
+	#SQL
+	"sql_query_error":				"Query could not be executed<pre>%s</pre>Error: %s",
+	"sql_result_invalid_type":	"%s::result expected result as $type MYSQLI_NUM, MYSQLI_ASSOC or MYSQLI_BOTH",
+	"sql_result_error":				"Result of the query could not be created",
+	
+	#Extension
+	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function"
+	
+}
