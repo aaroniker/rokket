@@ -184,7 +184,6 @@ button:hover {
   left: 0;
 }
 #wrap {
-  overflow: hidden;
   max-width: 1330px;
   margin: 0 auto;
 }
@@ -376,6 +375,9 @@ button:hover {
   left: 50%;
   top: 14%;
   padding: 25px;
+  -webkit-box-shadow: 0 0 16px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 16px rgba(0,0,0,0.2);
+  box-shadow: 0 0 16px rgba(0,0,0,0.2);
 }
 #login .logo {
   display: block;
@@ -554,7 +556,6 @@ input {
   border-radius: 3px;
 }
 .input {
-  width: 100%;
   margin-bottom: 20px;
 }
 .input:before {
@@ -568,17 +569,22 @@ input {
 }
 .input label {
   line-height: 36px;
-  display: block;
-  float: left;
+  color: #31343b;
 }
 .input input {
-  width: 72%;
-  float: right;
+  width: 100%;
+}
+.input ul li {
+  margin: 6px 0;
+}
+.input .switch {
+  margin-top: 9px;
 }
 .panel {
   width: 100%;
   background: #fff;
   border: 1px solid #d9dee2;
+  margin-bottom: 30px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -629,6 +635,9 @@ input {
 }
 .panel .content label {
   line-height: 36px;
+}
+.panel .content .input:last-of-type {
+  margin-bottom: 0;
 }
 .tabs > ul {
   margin-bottom: -1px;
@@ -732,6 +741,10 @@ table tbody tr.active td:first-child {
 table tbody .checkbox input:not(:checked) + label:before,
 table tbody .checkbox input:checked + label:before {
   top: 3px;
+}
+table th.first,
+table td.first {
+  padding-left: 25px;
 }
 .dropdown {
   position: relative;
@@ -894,6 +907,71 @@ table tbody .checkbox input:checked + label:before {
 .switch input:checked + label:after {
   margin-left: 18px;
   background: #4abb5a;
+}
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+.select {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 36px;
+}
+.select-styled {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 36px;
+  padding: 0 10px;
+  border: 1px solid #d9dee2;
+}
+.select-styled:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-color: #d8d8da transparent transparent transparent;
+  position: absolute;
+  top: 17px;
+  right: 10px;
+}
+.select-styled:active:after,
+.select-styled.active:after {
+  top: 11px;
+  border-color: transparent transparent #d8d8da transparent;
+}
+.select-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #f5f6f9;
+  border: 1px solid #d9dee2;
+}
+.select-options li {
+  padding: 2px 10px;
+  line-height: 26px;
+  margin: 0 !important;
+}
+.select-options li:hover {
+  background: #3c4048;
+  color: #fff;
+}
+.select-options li[rel="hide"] {
+  display: none;
 }
 .bt10 {
   padding: 0 0 10px 0;
