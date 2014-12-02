@@ -1,25 +1,7 @@
-<div class="subnav">
-	
-    <div class="left">
-        <nav>
-            <ul>
-                <li class="active">
-                    <a href="">All</a>
-                </li>
-                <li>
-                    <a href="">CS: GO</a>
-                </li>
-                <li>
-                    <a href="">CS: Source</a>
-                </li>
-                <li>
-                    <a href="">CS: 1.6</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+<div class="row">
+
+    <div class="col-md-8">
     
-    <div class="right">
         <div class="panel">
             <div class="top">
                 <h3>Headline</h3>
@@ -128,6 +110,36 @@
                 </tbody>
             </table>
         </div>
+    
+    </div>
+    
+    <div class="col-md-4">
+    	<?php
+		
+			$table = new table();
+				
+			$table->addCollsLayout('*, 80');
+			
+			$table->addRow()
+				->addCell(lang::get('name'), ['class' => 'first'])
+				->addCell(lang::get('id'));
+			
+			$table->addSection('tbody');
+			
+			foreach(games::getAll() as $game)
+				
+				$table->addRow()
+					->addCell($game['name'], ['class' => 'first'])
+					->addCell($game['id']);
+		?>
+		
+		<div class="panel">
+			<div class="top">
+				<h3><?=lang::get('games'); ?></h3>
+			</div>
+			<?=$table->show(); ?>
+		</div>
+        
     </div>
 
 </div>
