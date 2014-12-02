@@ -21,10 +21,13 @@
 			$sql->setTable('user');
 			$sql->setWhere('id='.$id);
 			
+			$admin = (isset($_POST['admin'])) ? 1 : 0;
+			
 			$sql->addPost('perms', implode('|', $rights));
 			$sql->addPost('firstname', type::post('firstname'));
 			$sql->addPost('name', type::post('name'));
 			$sql->addPost('email', type::post('email'));
+			$sql->addPost('admin', $admin);
 			$sql->addPost('username', type::post('username'));
 			
 			if(type::post('password') && type::post('password') != $sqlUser->get('password'))
@@ -67,45 +70,74 @@
         
             <div id="tab-1">
                 <h2><?=lang::get('profile'); ?></h2>
+                
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="input">
-                            <label><?=lang::get('firstname'); ?></label>
-                            <input type="text" name="firstname" value="<?=$sql->get('firstname'); ?>">
-                        </div>
-                    </div>
                 
                     <div class="col-md-6">
-                        <div class="input">
-                            <label><?=lang::get('name'); ?></label>
-                            <input type="text" name="name" value="<?=$sql->get('name'); ?>">
+                        <div class="input row">
+                            <label class="col-sm-5"><?=lang::get('firstname'); ?></label>
+                            <div class="col-sm-7">
+                                <input type="text" name="firstname" value="<?=$sql->get('firstname'); ?>">
+                            </div>
                         </div>
                     </div>
-                </div>
+                    
+                    <div class="col-md-6">
+                        <div class="input row">
+                            <label class="col-sm-5"><?=lang::get('name'); ?></label>
+                            <div class="col-sm-7">
+                                <input type="text" name="name" value="<?=$sql->get('name'); ?>">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="input row">
+                            <label class="col-sm-5"><?=lang::get('email'); ?></label>
+                            <div class="col-sm-7">
+                                <input type="email" name="email" value="<?=$sql->get('email'); ?>">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="input row">
+                            <label class="col-sm-5"><?=lang::get('username'); ?></label>
+                            <div class="col-sm-7">
+                                <input type="text" name="username" value="<?=$sql->get('username'); ?>">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="input row">
+                            <label class="col-sm-5"><?=lang::get('admin'); ?></label>
+                            <div class="col-sm-7">
             
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input">
-                            <label><?=lang::get('email'); ?></label>
-                            <input type="text" name="email" value="<?=$sql->get('email'); ?>">
+                                <div class="switch">
+                                    <input name="admin" id="admin" value="1" type="checkbox" <?=($sql->get('admin')) ? 'checked="checked"' : ''; ?>>
+                                    <label for="admin"></label>
+                                    <div><?=lang::get('yes'); ?></div>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 
-                    <div class="col-md-6">
-                        <div class="input">
-                            <label><?=lang::get('username'); ?></label>
-                            <input type="text" name="username" value="<?=$sql->get('username'); ?>">
-                        </div>
-                    </div>
                 </div>
+                
+                <hr>
                 
                 <h2><?=lang::get('password'); ?></h2>
                 <p><?=lang::get('only_change'); ?></p>
+                
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="input">
-                            <label><?=lang::get('password'); ?></label>
-                            <input type="text" name="password" value="<?=$sql->get('password'); ?>">
+                        <div class="input row">
+                            <label class="col-sm-5"><?=lang::get('password'); ?></label>
+                            <div class="col-sm-7">
+                                <input type="text" name="password" value="<?=$sql->get('password'); ?>">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,6 +154,7 @@
                     <ul>
                         <li data-action="create"><?=lang::get('create'); ?></li>
                         <li data-action="edit"><?=lang::get('edit'); ?></li>
+                        <li data-action="settings"><?=lang::get('settings'); ?></li>
                         <li data-action="delete"><?=lang::get('delete'); ?></li>
                     </ul>
                 
