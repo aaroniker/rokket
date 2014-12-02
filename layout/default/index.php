@@ -1,6 +1,6 @@
 <?php include('inc/head.php'); ?>
 
-		<div id="wrap">
+	<div id="wrap">
     
     	<div id="control">
         	<ul>
@@ -65,7 +65,9 @@
             </section>
             
         </div>
-    
+    	
+        <div class="clear"></div>
+        
     </div>
 
 <?php include('inc/foot.php'); ?>
