@@ -1,10 +1,14 @@
 {
-	"name": "Rokket Panel",
+    "name": "Rokket Panel",
     "url": "http:\/\/server.broken-gaming.de",
     "version": "0.1",
     "setup": false,
     "debug": true,
     "cache": false,
+    "logs": 1,
+    "emailNot": null,
+    "email": "",
+    "ip": "",
     "DB": {
         "host": "",
         "user": "",
@@ -12,13 +16,16 @@
         "database": "",
         "prefix": null
     },
-	"SSH": {
-			"ip":	"",
-			"user": "",
-			"password": ""
-	},
+    "SSH": {
+        "ip": "",
+        "user": "",
+        "password": ""
+    },
     "timezone": "Europe\/Berlin",
     "logincookie": 86400,
-    "lang": "en_gb",
-    "layout": "default"
+    "lang": "de_de",
+    "layout": "default",
+    "user": {
+
+    }
 }
