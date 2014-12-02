@@ -17,6 +17,7 @@
 	"description":			"Description",
 	"access_denied":	"Access denied!",
 	"page_not_found":	"Page not found",
+	"no_entries":				"No entries found",
 	
 	#Actions
 	"update":			"Update",

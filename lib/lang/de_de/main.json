@@ -17,6 +17,7 @@
 	"description":			"Beschreibung",
 	"access_denied":	"Zugriff verweigert!",
 	"page_not_found":	"Seite nicht gefunden",
+	"no_entries":				"Keine Einträge",
 	
 	#Actions
 	"update":			"Aktualisieren",
