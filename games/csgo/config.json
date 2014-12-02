@@ -1,0 +1,42 @@
+{
+    "name": "Counter Strike: Global Offensive",
+	"id":	"csgo",
+	"vars":		{
+		"id": {
+			"name": "ID",
+			"type": "string"
+		},
+		"hostname":	{
+			"name":	"Hostname",
+			"type":		"string"
+		},
+		"rcon":	{
+			"name":	"Rcon Password",
+			"type":		"string"
+		},
+		"map":	{
+			"name":	"Map",
+			"type":		"string"
+		},
+		"port":	{
+			"name":	"Port",
+			"type":		"int"
+		},
+		"maxplayers":	{
+			"name":	"Slots",
+			"type":		"int"
+		},
+		"gamemode": {
+			"name":	"Gamemode",
+			"type":		"0,1,2"
+		},
+		"gametype": {
+			"name":	"Gametype",
+			"type":		"0,1"
+		},
+		"tickrate": {
+			"name":	"Tickrate",
+			"type":		"64,128"
+		}
+	}
+}
