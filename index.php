@@ -38,10 +38,7 @@ lang::setLang(rp::get('lang'));
 $DB = rp::get('DB');
 sql::connect($DB['host'], $DB['user'], $DB['password'], $DB['database']);
 
-$SSH = rp::get('SSH');
-ssh::connect($SSH['ip'], $SSH['user'], $SSH['password']);
-
-unset($DB, $SSH);
+unset($DB);
 
 date_default_timezone_set(rp::get('timezone', 'Europe/Berlin'));
 
@@ -93,6 +90,7 @@ layout::addNav(lang::get('dashboard'), 'dashboard', 'home', [], false);
 layout::addNav(lang::get('settings'), 'settings', 'settings', [], false);
 
 layout::addNav(lang::get('server'), 'server', 'list', ['add'], true);
+layout::addNav(lang::get('addons'), 'addons', 'alt', [], true);
 layout::addNav(lang::get('user'), 'user', 'users', ['add'], true);
 
 if(userLogin::isLogged()) {	
