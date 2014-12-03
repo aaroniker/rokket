@@ -107,6 +107,18 @@
 	"sql_result_error":				"Result of the query could not be created",
 	
 	#Extension
-	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function"
+	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function",
+	
+	#Time
+	"years": 			"Years",
+	"year": 			"Year",
+	"days": 			"Days",
+	"day": 				"Day",
+	"hour":			"Hour",
+	"hours":			"Hours",
+	"minutes": 		"Minutes",
+	"minute": 		"Minute",
+	"seconds": 	"Seconds",
+	"second": 		"Second"
 	
 }

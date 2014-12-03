@@ -108,6 +108,18 @@
 	"sql_result_error":				"Resultat vom Query konnte nicht erzeugt werden",
 	
 	#Extension
-	"extension_callable_func":	"%s::add erwartet als 2. Parameter eine vorhandene Funktion"
+	"extension_callable_func":	"%s::add erwartet als 2. Parameter eine vorhandene Funktion",
+	
+	#Time
+	"years": 			"Jahre",
+	"year": 			"Jahr",
+	"days": 			"Tage",
+	"day": 				"Tag",
+	"hour":			"Stunde",
+	"hours":			"Stunden",
+	"minutes": 		"Minuten",
+	"minute": 		"Minute",
+	"seconds": 	"Sekunden",
+	"second": 		"Sekunde"
 	
 }
