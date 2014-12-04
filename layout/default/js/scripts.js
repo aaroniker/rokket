@@ -45,6 +45,92 @@ $(document).ready(function() {
 		});
 	});
 	
+	$('.circle').each(function(){
+	
+		cur = $(this);
+		var svgObj = cur.find('svg');
+		var perObj = cur.find('div');
+		
+		var color = cur.data('color');
+		
+		var curWidth = cur.width();
+		var center = curWidth / 2;
+		var radius = curWidth * 0.8 / 2;
+		var start = center - radius;
+		
+		var per = perObj.text().replace("%","") / 100;
+		
+		var svg = Snap(svgObj.get(0));
+		var arc = svg.path("");
+		var circle = svg.circle(curWidth / 2, curWidth / 2, radius);
+		
+		circle.attr({
+			stroke: "#" + color,
+			fill: 'none',
+			strokeWidth: 8
+		});
+		
+		perObj.text('');
+		
+		var stat = {
+			center: center,
+			radius: radius,
+			start: start,
+			svgObj: svgObj,
+			per: per,
+			svg: svg,
+			arc: arc,
+			circle: circle
+		};
+		
+		animate(stat);
+	
+	});
+	
+	function animate(stat) {
+	
+		var endpoint = stat.per * 360;
+		
+		var colorActive = stat.svgObj.data('color');
+		
+		Snap.animate(0, endpoint, function(val) {
+		
+			stat.arc.remove();
+			
+			var curPer = Math.round(val / 360 * 100);
+			
+			if(curPer == 100) {
+			
+				stat.circle.attr({
+					stroke: "#" + colorActive
+				});
+			
+			} else {
+			
+				var d = val;
+				var dr = d - 90;
+				var radians = Math.PI * (dr) / 180;
+				var endx = stat.center + stat.radius * Math.cos(radians);
+				var endy = stat.center + stat.radius * Math.sin(radians);
+				var largeArc = d > 180 ? 1 : 0;  
+				var path = "M"+stat.center+","+stat.start+" A"+stat.radius+","+stat.radius+" 0 "+largeArc+",1 "+endx+","+endy;
+				
+				stat.arc = stat.svg.path(path);
+				
+				stat.arc.attr({
+					stroke: "#" + colorActive,
+					fill: 'none',
+					strokeWidth: 8
+				});
+			
+			}
+			
+			stat.svgObj.prev().html(curPer +'%');
+		
+		}, 1100, mina.easeinout);
+	
+	}
+	
 	sweetAlertInitialize();
 	
 	$('table tbody tr').click(function() {
