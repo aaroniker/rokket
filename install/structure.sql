@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `server` (
   `id` int(11) NOT NULL,
   `gameID` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `port` int(5) NOT NULL,
   `hostname` varchar(255) NOT NULL,
   `rcon` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
