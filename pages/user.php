@@ -38,25 +38,25 @@
 			echo message::success(lang::get('user_edited'));	
 		}
 		
-	$sql = new sql();
-	$sql->result("SELECT * FROM ".sql::table('user')." WHERE id = '".$sql->escape($id)."'");
-	
-	$permTypes = ['server', 'games', 'user'];
-	
-	$perms = explode('|', $sql->get('perms'));
-	
-	$permsSplit = [];
-	
-	foreach($perms as $value) {
-			preg_match("~^(\w+)\[(\w+)\]$~", $value, $matches);
-			if(count($matches)) {       
-					$key = $matches[1];
-					if(!isset($permsSplit[$key]))
-							$permsSplit[$key] = array();
-	
-					$permsSplit[$key][] = $matches[2];
-			}
-	}
+		$sql = new sql();
+		$sql->result("SELECT * FROM ".sql::table('user')." WHERE id = '".$sql->escape($id)."'");
+		
+		$permTypes = ['server', 'games', 'user'];
+		
+		$perms = explode('|', $sql->get('perms'));
+		
+		$permsSplit = [];
+		
+		foreach($perms as $value) {
+				preg_match("~^(\w+)\[(\w+)\]$~", $value, $matches);
+				if(count($matches)) {       
+						$key = $matches[1];
+						if(!isset($permsSplit[$key]))
+								$permsSplit[$key] = array();
+		
+						$permsSplit[$key][] = $matches[2];
+				}
+		}
 	
 ?>
 
