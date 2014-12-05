@@ -36,7 +36,6 @@ $(document).ready(function() {
 			$styledSelect.text($(this).text()).removeClass('active');
 			$this.val($(this).attr('rel'));
 			$list.hide();
-			//console.log($this.val());
 		});
 	  
 		$(document).click(function() {
@@ -130,13 +129,6 @@ $(document).ready(function() {
 		}, 1100, mina.easeinout);
 	
 	}
-	
-	sweetAlertInitialize();
-	
-	$('table tbody tr').click(function() {
-		$(this).toggleClass('active');
-		$(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
-	});
 	
 	$('table tbody input[type=checkbox]').change(function() {
 		$(this).parent().parent().toggleClass('active');
