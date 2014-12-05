@@ -195,17 +195,24 @@ class host {
 		return $result;
 	}
 	
-	public function temperature() {
-		
-		$temp_file = "/sys/bus/w1/devices/28-000004e8a0f3/w1_slave";
-		
-		if(file_exists($temp_file)) {
-			$lines = file($temp_file);
-			$currenttemp = round(substr($lines[1], strpos($lines[1], "t=")+2) / 1000 , 1) . "ï¿½C" ;
-		} else
-			$currenttemp = "N/A";
+	public function services() {
 	
-		return  $currenttemp;
+		$result = [];
+		
+		exec('/usr/sbin/service --status-all', $servicesArray);
+		
+		for ($i = 0; $i < count($servicesArray); $i++) {
+			
+			$servicesArray[$i] = preg_replace('!\s+!', ' ', $servicesArray[$i]);
+			
+			preg_match_all('/\S+/', $servicesArray[$i], $serviceDetails);
+			
+			list($bracket1, $result[$i]['status'], $bracket2, $result[$i]['name']) = $serviceDetails[0];
+			
+			$result[$i]['status'] = ($result[$i]['status']=='+'?true:false);
+		}
+		
+		return $result;
 	}
 	
 	public function uptime() {
@@ -214,53 +221,6 @@ class host {
 		$uptime = explode(" ", $uptime); 
 	
 		return self::convertTime($uptime[0]);
-	}
-	
-	public function users() {
-	
-		$result = array();
-	
-		$dataRaw = $this->ssh->exec("who --ips");
-		
-		$dataRawDNS = $this->ssh->exec("who --lookup");
-	
-		if(empty($dataRaw)) $dataRaw = $this->ssh->exec("who");
-	
-		foreach (explode ("\n", $dataRawDNS) as $line) {
-			
-			$line = preg_replace("/ +/", " ", $line);
-			
-			if (strlen($line)>0) {
-			
-				$line = explode(" ", $line);
-	
-				$temp[] = @$line[5];
-			}
-		}
-	
-		$i = 0;
-	
-		foreach (explode ("\n", $dataRaw) as $line) {
-	
-			$line = preg_replace("/ +/", " ", $line);
-	
-			if(strlen($line)>0) {
-	
-				$line = explode(" ", $line);
-	
-				$result[] = array(
-					'user' => $line[0],
-					'ip' => @$line[5],
-					'dns' => $temp[$i],
-					'date' => $line[2] .' '. $line[3],
-					'hour' => $line[4]
-				);
-			}
-	
-			$i++;
-		}
-	
-		return $result;
 	}
 	
 	protected function convertTime($seconds) {
