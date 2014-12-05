@@ -84,7 +84,7 @@ if($action == 'help') {
 } else {
 	
 	$table = new table();
-	$table->addCollsLayout('20,*,215');
+	$table->addCollsLayout('25,*,215');
 	
 	$table->addRow()
 	->addCell('')
@@ -132,7 +132,7 @@ if($action == 'help') {
 	?>
     <div class="panel">
 		<div class="top">
-			<h3><?=lang::get('addons'); ?></h3>
+			<h3><?=count($addons).' '.lang::get('addons'); ?></h3>
         </div>
         <?=$table->show(); ?>
     </div>
