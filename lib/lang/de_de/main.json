@@ -72,6 +72,19 @@
 	
 	#Dashboard
 	"dashboard":			"Dashboard",
+	"distribution":			"Distribution",
+	"firmware":				"Firmware",
+	"hostname":				"Hostname",
+	"kernel":				"Kernel",
+	"ram_total":			"Insgesamt %s",
+	"hdd_avail":			"%s verfügbar",
+	"cpu_average":			"%s Kerne gefunden",
+	"since_start":			"Seit Server-Start",
+	"server_info":			"Server Informationen",
+	"ethernet":				"Ethernet",
+	"rokket_about":			"Über Rokket",
+	"rokket_text":			"Rokket ist ein kostenloses Open-Source Webinterface für die Verwaltung von Gameservern - hier findest du weitere Informationen:",
+	"visit_website":		"Besuche unsere Webseite",
 	
 	#Addon
 	"addons": "Addons",

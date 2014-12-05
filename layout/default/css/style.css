@@ -84,6 +84,26 @@ button svg {
   width: 20px;
   height: 20px;
 }
+.button.facebook,
+button.facebook {
+  background: #4a6fc0;
+  margin: 5px 0 10px 0;
+}
+.button.github,
+button.github {
+  background: #000;
+  margin: 5px 0 10px 0;
+}
+.button.none,
+button.none {
+  background: none;
+  margin: 5px 0 10px 0;
+  color: #9ba0aa;
+}
+.button.none:hover,
+button.none:hover {
+  color: #9ba0aa;
+}
 .button.full,
 button.full {
   padding: 8px 0;
@@ -93,6 +113,18 @@ button.full {
 .button:hover,
 button:hover {
   color: #fff;
+}
+.button.svg,
+button.svg {
+  position: relative;
+}
+.button.svg svg,
+button.svg svg {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 10px;
+  top: 10px;
 }
 .message {
   width: 100%;
@@ -746,6 +778,18 @@ table th.first,
 table td.first {
   padding-left: 25px;
 }
+table.horizontal {
+  margin: -9px 0;
+}
+table.horizontal th.first,
+table.horizontal td.first {
+  padding-left: 0;
+  color: #31343b;
+}
+table.horizontal td,
+table.horizontal th {
+  padding: 13px 0;
+}
 .dropdown {
   position: relative;
 }
@@ -978,6 +1022,7 @@ table td.first {
   display: inline-block;
   height: 80px;
   width: 80px;
+  overflow: hidden;
 }
 .circle div {
   position: absolute;
@@ -986,6 +1031,37 @@ table td.first {
   width: 100%;
   top: 50%;
   text-align: center;
+}
+.circle svg {
+  width: 80px;
+  height: 80px;
+}
+.stats {
+  background: #3c4048;
+  padding: 25px;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+.stats .circle {
+  float: right;
+}
+.stats .right {
+  float: right;
+  width: 90px;
+  height: 80px;
+}
+.stats .text {
+  float: left;
+}
+.stats h3 {
+  color: #f5f6f9;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 8px 0 5px 0;
+}
+.stats.primary {
+  background: #ec7371;
+  color: #fff;
 }
 .bt10 {
   padding: 0 0 10px 0;

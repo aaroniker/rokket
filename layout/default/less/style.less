@@ -177,6 +177,22 @@ button {
 		width: 20px;
 		height: 20px;
 	}
+	&.facebook {
+		background: #4a6fc0;
+		margin: 5px 0 10px 0;
+	}
+	&.github {
+		background: #000;
+		margin: 5px 0 10px 0;
+	}
+	&.none {
+		&:hover {
+			color: @font;
+		}
+		background: none;
+		margin: 5px 0 10px 0;
+		color: @font;
+	}
 	&.full {
 		padding: 8px 0;
 		width: 100%;
@@ -184,6 +200,16 @@ button {
 	}
 	&:hover {
 		color: @white;
+	}
+	&.svg {
+		svg {
+			position: absolute;
+			width:16px;
+			height: 16px;
+			left: 10px;
+			top: 10px;
+		}
+		position: relative;
 	}
 }
 
@@ -803,6 +829,18 @@ table {
 	td.first {
 		padding-left: @space-small;
 	}
+	&.horizontal {
+		th.first,
+		td.first {
+			padding-left: 0;
+			color: @font-dark;
+		}
+		td,
+		th {
+			padding: 13px 0;
+		}
+		margin: -9px 0;
+	}
 	width: 100%;
 	text-align: left;
 }
@@ -1015,10 +1053,44 @@ table {
 		top: 50%;
 		text-align: center;
 	}
+	svg {
+		width: 80px;
+		height: 80px;
+	}
 	position: relative;
 	display: inline-block;
 	height: 80px;
 	width: 80px;
+	overflow: hidden;
+}
+
+.stats {
+	.circle {
+		float: right;
+	}
+	.right {
+		float: right;
+		width: 90px;
+		height: 80px;
+	}
+	.text {
+		
+		float: left;
+	}
+	h3 {
+		color: @light;
+		font-size: 24px;
+		font-weight: 300;
+		margin: 8px 0 5px 0;
+	}
+	&.primary {
+		background: @primary;
+		color: @white;
+	}
+	background: @dark;
+	padding: @space-small;
+	overflow: hidden;
+	margin-bottom: @space;
 }
 
 .bt10 { padding: 0 0 10px 0; }
