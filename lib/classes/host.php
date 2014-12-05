@@ -58,7 +58,7 @@ class host {
 		
 		$result = [];
 	
-		$this->ssh->exec('lsblk --pairs', $disksArray);
+		exec('lsblk --pairs', $disksArray);
 	
 		for ($i = 0; $i < count($disksArray); $i++) { 
 	
@@ -74,32 +74,32 @@ class host {
 		}
 	
 		return $result;
-	}  
-		
+	} 
+	
 	public function ram() {
 		
 		//$result['percentage'] >= '80'  = 'danger'
-	
-		$this->ssh->exec('free -mo', $out);
-	
+		
+		exec('free -mo', $out);
+		
 		preg_match_all('/\s+([0-9]+)/', $out[1], $matches);
-	
+		
 		list($total, $used, $free, $shared, $buffers, $cached) = $matches[1];
 		
-		return [
+		return array(
 			'free' => $free + $buffers + $cached,
 			'percentage' => $total == 0 ? 0:round(($used - $buffers - $cached) / $total * 100),
 			'total'  => $total,
 			'used' => $used - $buffers - $cached,
 			'detail' => $this->ssh->exec('ps -e -o pmem,user,args --sort=-pmem | sed "/^ 0.0 /d" | head -5')
-		];
+		);
 	}
 	
 	public function swap() {
 	
 		//$result['percentage'] >= '80' = danger
 	
-		$this->ssh->exec('free -mo', $out);
+		exec('free -mo', $out);
 		
 		preg_match_all('/\s+([0-9]+)/', $out[2], $matches);
 	
@@ -118,7 +118,7 @@ class host {
 		$gpios = array();
 		
 		for($i=0;$i<25;$i++){
-			$gpios[$i] = $this->ssh->exec("/usr/local/bin/gpio read ".$i, $out);
+			$gpios[$i] = $this->ssh->exec("/usr/local/bin/gpio read ".$i);
 		}
 	
 		return $gpios;
@@ -148,7 +148,7 @@ class host {
 	
 	public function distribution() {
 		
-		$distroTypeRaw = $this->ssh->exec("cat /etc/*-release | grep PRETTY_NAME=", $out);
+		$distroTypeRaw = $this->ssh->exec("cat /etc/*-release | grep PRETTY_NAME=");
 	
 		return str_ireplace(array('PRETTY_NAME="','"'), '', $distroTypeRaw);
 	}
@@ -165,33 +165,13 @@ class host {
 		return $full ? $this->ssh->exec("hostname -f") : gethostname();
 	}
 	
-	public function services() {
-	
-		$result = array();
-	
-		$this->ssh->exec('/usr/sbin/service --status-all', $servicesArray);
-	
-		for ($i = 0; $i < count($servicesArray); $i++) {
-		
-			$servicesArray[$i] = preg_replace('!\s+!', ' ', $servicesArray[$i]);
-			
-			preg_match_all('/\S+/', $servicesArray[$i], $serviceDetails);
-	
-			list($bracket1, $result[$i]['status'], $bracket2, $result[$i]['name']) = $serviceDetails[0];
-	
-			$result[$i]['status'] = ($result[$i]['status']=='+'?true:false);
-		}
-	
-		return $result;
-	}
-	
 	public function hdd() {
 		
 		//$result[$i]['percentage'] > '80' = danger
 	
 		$result = array();
 	
-		$this->ssh->exec('df -T | grep -vE "tmpfs|rootfs|Filesystem"', $drivesarray);
+		exec('df -T | grep -vE "tmpfs|rootfs|Filesystem"', $drivesarray);
 	
 		for ($i=0; $i<count($drivesarray); $i++) {
 	
