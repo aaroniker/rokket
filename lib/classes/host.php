@@ -215,15 +215,15 @@ class host {
 		return $result;
 	}
 	
-	public function uptime() {
+	public function uptime($str = false) {
 	
 		$uptime = $this->ssh->exec("cat /proc/uptime");
 		$uptime = explode(" ", $uptime); 
 	
-		return self::convertTime($uptime[0]);
+		return self::convertTime($uptime[0], $str);
 	}
 	
-	protected function convertTime($seconds) {
+	protected function convertTime($seconds, $str = false) {
 	
 		$y = floor($seconds / 60/60/24/365);
 		$d = floor($seconds / 60/60/24) % 365;
@@ -232,32 +232,40 @@ class host {
 		$s = $seconds % 60;
 	
 		$return = [];
-	
+		$string = '';
+			
 		if ($y > 0) {
 			$yw = $y > 1 ? lang::get('years') : lang::get('year');
 			$return[] = [$y, $yw];
+			$string .= $y.' '.$yw.'<br>';
 		}
 	
 		if ($d > 0) {
 			$dw = $d > 1 ? lang::get('days') : lang::get('day');
 			$return[] = [$d, $dw];
+			$string .= $d.' '.$dw.'<br>';
 		}
 	
 		if ($h > 0) {
 			$hw = $h > 1 ? lang::get('hours') : lang::get('hour');
 			$return[] = [$h, $hw];
+			$string .= $h.' '.$hw.'<br>';
 		}
 	
 		if ($m > 0) {
 			$mw = $m > 1 ? lang::get('minutes') : lang::get('minute');
 			$return[] = [$m, $mw];
+			$string .= $m.' '.$mw.'<br>';
 		}
 	
 		if ($s > 0) {
 			$sw = $s > 1 ? lang::get('seconds') : lang::get('second');
 			$return[] = [$s, $sw];
+			$string .= $s.' '.$sw.'<br>';
 		}
-	
+		if($str)
+			return $string;
+			
 		return $return;
 	}
 	
