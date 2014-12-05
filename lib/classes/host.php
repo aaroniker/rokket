@@ -12,18 +12,15 @@ class host {
 
 	public function cpu() {
 		
-		// $loads[0] > 1 == 'danger'
-	
-		$loads = @sys_getloadavg();
+		$loads = sys_getloadavg();
+
+		$cores = trim($this->ssh->exec("grep -P '^processor' /proc/cpuinfo|wc -l"));
+		
+		$load = round($loads[0] / ($cores + 1) * 100, 2);
 	
 		return [
-			'current_frequency' => round(file_get_contents("/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq") / 1000), //Mhz
-			'minimum_frequency' => round(file_get_contents("/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq") / 1000), //Mhz
-			'maximum_frequency' => round(file_get_contents("/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq") / 1000), //Mhz
-			'governor'		    => substr(file_get_contents("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"), 0, -1),
-			'loads'			    => $loads[0],
-			'loads5'		    => $loads[1],
-			'loads15'		    => $loads[2],
+			'num' => $cores,
+			'load' => $load
 		];
 	}
 	
