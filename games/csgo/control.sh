@@ -31,8 +31,8 @@ mapgroup="random_classic"
 maxplayers="{{maxplayers}}"
 tickrate="{{tickrate}}"
 port="{{port}}"
-sourcetvport="27020"
-clientport="27005"
+sourcetvport="{{sourcetvport}}"
+clientport="{{clientport}}"
 ip="{{ip}}"
 # Optional: Workshop Parameters
 # https://developer.valvesoftware.com/wiki/CSGO_Workshop_For_Server_Operators
@@ -71,8 +71,8 @@ defaultcfg="${servercfgdir}/server.cfg"
 backupdir="backups"
 
 # Server Details
-servername=$(grep -s hostname "${servercfgfullpath}"|sed 's/hostname //g'|sed 's/"//g')
-rcon=$(grep -s rcon_password "${servercfgfullpath}"|sed 's/rcon_password //g'|sed 's/"//g')
+servername="{{hostname}}"
+rcon="{{rcon}}"
 
 # Logging
 logdays="7"

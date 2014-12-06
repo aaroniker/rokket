@@ -6,6 +6,14 @@
 			"name": "ID",
 			"type": "string"
 		},
+		"sourcetvport": {
+			"name": "Sourcetvport",
+			"type": "int"
+		},
+		"clientport": {
+			"name": "Clientport",
+			"type": "int"
+		},
 		"map":	{
 			"name": "Map",
 			"type": "string"
