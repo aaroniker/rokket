@@ -1,5 +1,57 @@
 <?php
-	if($action == 'edit' && $id) {
+	if($action == 'add') {
+?>
+
+<div class="panel">
+	<div class="top">
+		<h3><?=lang::get('server_add'); ?></h3>
+	</div>
+	<div class="content">
+    
+    	<form action="" method="post">
+    
+        <div class="row">
+                        
+            <div class="col-md-6">
+            	<div class="input row">
+            		<label class="col-sm-5"><?=lang::get('name'); ?></label>
+            		<div class="col-sm-7">
+            			<input type="text" name="name">
+            		</div>
+            	</div>
+                
+            	<div class="input row">
+            		<label class="col-sm-5"><?=lang::get('game'); ?></label>
+                    <div class="col-sm-7">
+                        
+                        <select name="gameID">
+                        <option value="<?=rp::get('lang'); ?>"><?=lang::get('game_select'); ?></option>
+                        <?php
+                            $games = games::getAll();
+                            
+                            foreach($games as $var)
+                                echo '<option value="'.$var['id'].'">'.$var['name'].'</option>';
+                            
+                        ?>
+                        </select>
+                    </div>
+            	</div>
+            </div>
+        
+        </div>
+                
+        <hr>
+            
+        <a href="?page=user" class="light button"><?=lang::get('back'); ?></a>
+        <button type="submit" name="send"><?=lang::get('add'); ?></button>
+        
+        </form>
+        
+    </div>
+</div>
+
+<?php
+	} elseif($action == 'edit' && $id) {
 ?>
 	
 <?php	

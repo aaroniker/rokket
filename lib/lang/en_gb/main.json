@@ -34,9 +34,12 @@
 	
 	#Server
 	"server":				"Server",
+	"server_add":	"Add server",
 	
 	#Games
-	"games":			"Games",
+	"game":					"Game",
+	"game_select":		"Select a game",
+	"games":				"Games",
 	
 	#User
 	"user":					"User",
