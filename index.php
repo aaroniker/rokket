@@ -31,6 +31,7 @@ if(rp::get('setup') == true) {
 }
 
 include(dir::functions('html.php'));
+include(dir::functions('convert.php'));
 
 lang::setDefault();
 lang::setLang(rp::get('lang'));
