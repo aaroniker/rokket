@@ -52,6 +52,33 @@ class sftp {
 		
 	}
 	
+	public function ls($dir = '', $nlist = false) {
+		
+		if($nlist)
+			return $this->sftp->nlist($dir);
+		
+		return $this->sftp->rawlist($dir);
+		
+	}
+	
+	public function info($file) {
+		
+		return $this->sftp->stat($file);
+		
+	}
+	
+	public function delete($file, $dir = false) {
+		
+		return $this->sftp->delete($file, $dir);
+		
+	}
+	
+	public function rename($old, $new) {
+		
+		return $this->sftp->rename($old, $new);
+		
+	}
+	
 }
 
 ?>
