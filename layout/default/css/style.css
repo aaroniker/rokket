@@ -68,13 +68,17 @@ button {
   padding: 8px 15px;
   border: 0;
   margin: 0 15px 0 0;
-  cursor: pointer;
   display: inline-block;
+  cursor: pointer;
   color: #fff;
 }
 .button.light,
 button.light {
   background: #f5f6f9;
+  color: #9ba0aa;
+}
+.button.light:hover,
+button.light:hover {
   color: #9ba0aa;
 }
 .button svg,
@@ -642,17 +646,25 @@ input {
 .panel .top ul li {
   float: left;
 }
-.panel .top ul li a {
-  padding: 15px 0 0 15px;
+.panel .top ul li a,
+.panel .top ul li button {
+  padding: 15px 0 15px 15px;
   display: block;
   width: 50px;
   height: 50px;
+  background: none;
+  margin: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
   border-left: 1px solid #d9dee2;
 }
-.panel .top ul li a:hover svg {
+.panel .top ul li a:hover svg,
+.panel .top ul li button:hover svg {
   fill: #ec7371;
 }
-.panel .top ul li a svg {
+.panel .top ul li a svg,
+.panel .top ul li button svg {
   width: 20px;
   height: 20px;
   display: block;

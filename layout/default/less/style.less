@@ -164,10 +164,13 @@ button {
 	padding: 8px 15px;
 	border: 0;
 	margin: 0 15px 0 0;
-	cursor: pointer;
 	display: inline-block;
+	cursor: pointer;
 	color: @white;
 	&.light {
+		&:hover {
+			color: @font;
+		}
 		background: @light;
 		color: @font;
 	}
@@ -668,7 +671,8 @@ input {
 		}
 		ul {
 			li {
-				a {
+				a,
+				button {
 					&:hover {
 						svg {
 							fill: @primary;
@@ -681,10 +685,13 @@ input {
 						fill: @font-light;
 						.transition();
 					}
-					padding: 15px 0 0 15px;
+					padding: 15px 0 15px 15px;
 					display: block;
 					width: 50px;
 					height: 50px;
+					background: none;
+					margin: 0;
+					.round(0);
 					border-left: 1px solid @border;
 				}
 				float: left;
