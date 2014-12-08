@@ -35,6 +35,9 @@
 	#Server
 	"server":				"Server",
 	"server_add":	"Add server",
+	"port":					"Port",
+	"variables":			"Variables",
+	"choose_game_first":	"Chosse a game first",
 	
 	#Games
 	"game":					"Game",
