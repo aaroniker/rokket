@@ -2,8 +2,12 @@
     "name": "Counter Strike: Global Offensive",
 	"id":	"csgo",
 	"vars":		{
-		"id": {
-			"name": "ID",
+		"hostname": {
+			"name": "Hostname",
+			"type": "string"
+		},
+		"rcon": {
+			"name": "Rcon Pw",
 			"type": "string"
 		},
 		"sourcetvport": {
@@ -16,7 +20,7 @@
 		},
 		"map":	{
 			"name": "Map",
-			"type": "string"
+			"type": "de_dust2,de_dust,de_mirage,de_nuke,cs_office,de_inferno,de_overpass,de_train,de_cache"
 		},
 		"maxplayers":	{
 			"name": "Slots",
