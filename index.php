@@ -14,6 +14,10 @@ if(version_compare(PHP_VERSION, 5.4) < 0) {
 	exit();
 }
 
+set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
+include_once('Net/SSH2.php');
+include_once('Net/SFTP.php');
+
 include('lib/classes/dir.php');
 
 new dir();
