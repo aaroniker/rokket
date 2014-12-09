@@ -58,6 +58,12 @@ class dir {
 
 	}
 	
+	public static function backup($file = '') {
+
+		return self::base('lib'.DIRECTORY_SEPARATOR.'backup'.DIRECTORY_SEPARATOR.$file);
+
+	}
+	
 	public static function games($file = '', $cur = false) {
 		
 		if($cur)
