@@ -129,7 +129,7 @@ class Net_SCP
         }
 
         switch (strtolower(get_class($ssh))) {
-            case'net_ssh2':
+            case 'net_ssh2':
                 $this->mode = NET_SCP_SSH2;
                 break;
             case 'net_ssh1':
@@ -170,7 +170,7 @@ class Net_SCP
             return false;
         }
 
-        if (!$this->ssh->exec('scp -t "' . $remote_file . '"', false)) { // -t = to
+        if (!$this->ssh->exec('scp -t ' . escapeshellarg($remote_file), false)) { // -t = to
             return false;
         }
 
@@ -195,7 +195,6 @@ class Net_SCP
 
             $fp = @fopen($data, 'rb');
             if (!$fp) {
-                fclose($fp);
                 return false;
             }
             $size = filesize($data);
@@ -245,7 +244,7 @@ class Net_SCP
             return false;
         }
 
-        if (!$this->ssh->exec('scp -f "' . $remote_file . '"', false)) { // -f = from
+        if (!$this->ssh->exec('scp -f ' . escapeshellarg($remote_file), false)) { // -f = from
             return false;
         }
 
