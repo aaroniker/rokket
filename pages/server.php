@@ -91,7 +91,7 @@
                         
             <div class="col-md-7">
         
-        		<div id="ajax"><?=lang::get('choose_game_first'); ?>...</div>
+        		<div id="ajax"><?=lang::get('choose_game_first'); ?></div>
                 
             </div>
         
@@ -129,6 +129,9 @@
 		
 		$newID = $new->insertId();
 		
+		$server = new server($newID);
+		$server->create();
+		
 		echo message::success(lang::get('server_added'));
 	
 	}
@@ -144,6 +147,8 @@
 				$sql->setTable('server');
 				$sql->setWhere("id=".$var);
 				$sql->delete();
+				
+				server::deleteDir($var);
 			}
 			
 			echo message::success(lang::get('server_deleted'));
