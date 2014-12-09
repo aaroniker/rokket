@@ -13,10 +13,7 @@ class ssh {
 		$this->host = $host;
 		$this->user = $user;
 		$this->password = $pass;
-			
-		set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
-		include('lib/vendor/phpseclib/Net/SSH2.php');
-	
+		
 		$this->ssh = new Net_SSH2($host);
 		
 		if (!$this->ssh->login($user, $pass)) {
