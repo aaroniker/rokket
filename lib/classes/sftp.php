@@ -9,9 +9,6 @@ class sftp {
 	protected $sftp;
 	
 	public function __construct($host, $user, $pass) {
-			
-		set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
-		include('lib/vendor/phpseclib/Net/SFTP.php');
 
 		$this->sftp = new Net_SFTP($host);
 		
@@ -21,9 +18,9 @@ class sftp {
 	
 	}
 	
-	public function put($cmd) {
+	public function put($file, $data, $const = false) {
 		
-		return $this->sftp->put($cmd);
+		return $this->sftp->put($file, $data, $const);
 		
 	}
 	
@@ -44,6 +41,12 @@ class sftp {
 	public function chdir($dir) {
 		
 		return $this->sftp->chdir($dir);
+		
+	}
+	
+	public function chmod($var, $file) {
+		
+		return $this->sftp->chmod($var, $file);
 		
 	}
 	
