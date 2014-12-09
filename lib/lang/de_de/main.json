@@ -38,6 +38,10 @@
 	"port":					"Port",
 	"variables":			"Variablen",
 	"choose_game_first":	"Wähle zuerst ein Spiel",
+	"choose_server": "Wähle zuerst einen Server",
+	"server_deleted": "Server gelöscht",
+	"server_added": "Server hinzugefügt",
+	
 	
 	#Games
 	"game":					"Spiel",
