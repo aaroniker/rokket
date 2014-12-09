@@ -9,22 +9,15 @@ class sftp {
 	protected $sftp;
 	
 	public function __construct($host, $user, $pass) {
-	
-		$this->host = $host;
-		$this->user = $user;
-		$this->password = $pass;
 			
 		set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
 		include('lib/vendor/phpseclib/Net/SFTP.php');
-	
+
 		$this->sftp = new Net_SFTP($host);
 		
 		if (!$this->sftp->login($user, $pass)) {
-		    echo message::danger(lang::get('sftp_login_failed'), false);
-			return false;
+			echo message::danger(lang::get('sftp_login_failed'), false);
 		}
-		
-		return $this->sftp;
 	
 	}
 	
@@ -34,10 +27,18 @@ class sftp {
 		
 	}
 	
-	public function mkdir($dir) {
+	public function makedir($dir) {
 		
 		return $this->sftp->mkdir($dir);
 		
+	}
+	
+	public function createDir($dir, $name){
+	
+		$this->sftp->chdir($dir);
+		
+		$this->sftp->mkdir($name);
+	
 	}
 	
 	public function chdir($dir) {
