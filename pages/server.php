@@ -129,8 +129,10 @@
 		
 		$newID = $new->insertId();
 		
+		$vars['id'] = type::post('gameID').$newID;
+		
 		$server = new server($newID);
-		$server->create();
+		$server->create((array)$vars);
 		
 		echo message::success(lang::get('server_added'));
 	
