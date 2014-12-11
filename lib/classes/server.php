@@ -59,6 +59,27 @@ class server {
 		
 		$sftp->put('control.sh', $dir.'control.sh', NET_SFTP_LOCAL_FILE);
 		$sftp->chmod(0777, 'control.sh');
+		
+		return true;
+		
+	}
+	
+	public function install() {
+		
+		$id = $this->id;
+		
+		$SSH = rp::get('SSH');
+		
+		$host = $SSH['ip'];
+		$user = $SSH['user'];
+		$pass = $SSH['password'];
+		
+		unset($SSH);
+		
+		$ssh = new ssh($host, $user, $pass);
+		
+		return $ssh->read();
+		
 	}
 	
 	public static function deleteDir($id) {
