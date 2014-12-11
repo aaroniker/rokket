@@ -31,6 +31,42 @@ class ssh {
 		
 	}
 	
+	public function write($cmd) {
+		
+		return $this->ssh->write($cmd);
+	
+	}
+	
+	public function read() {
+		
+		return nl2br($this->ssh->read());
+			
+	}
+	
+	public function getScreen() {
+		
+		return $this->ssh->getScreen();
+			
+	}
+	
+	public function isTimeout() {
+		
+		return $this->ssh->isTimeout();
+			
+	}
+	
+	public function setTimeout($time) {
+		
+		return $this->ssh->setTimeout($time);
+			
+	}
+	
+	public function reset() {
+		
+		return $this->ssh->reset();
+			
+	}
+	
 }
 
 ?>
