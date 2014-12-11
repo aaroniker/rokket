@@ -124,6 +124,7 @@
 		$new->addPost('gameID', type::post('gameID'));
 		$new->addPost('name', type::post('name'));
 		$new->addPost('port', $vars['port']);
+		$new->addPost('status', '');
 		
 		$new->save();
 		

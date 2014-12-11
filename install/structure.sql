@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `server` (
   `gameID` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `port` int(5) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `user` (
