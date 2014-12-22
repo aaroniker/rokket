@@ -66,19 +66,31 @@ class server {
 	
 	public function install() {
 		
-		$id = $this->id;
+		return $this->control('install');
 		
-		$SSH = rp::get('SSH');
+	}
+	
+	public function start() {
 		
-		$host = $SSH['ip'];
-		$user = $SSH['user'];
-		$pass = $SSH['password'];
+		return $this->control('start');
 		
-		unset($SSH);
+	}
+	
+	public function stop() {
 		
-		$ssh = new ssh($host, $user, $pass);
+		return $this->control('stop');
 		
-		return $ssh->read();
+	}
+	
+	public function restart() {
+		
+		return $this->control('restart');
+		
+	}
+	
+	public function details() {
+		
+		return $this->control('details');
 		
 	}
 	
@@ -117,6 +129,42 @@ class server {
 				
 		}
 		rmdir($path);
+	}
+	
+	protected function control($type) {
+		
+		$id = $this->id;
+		
+		$SSH = rp::get('SSH');
+		
+		$host = $SSH['ip'];
+		$user = $SSH['user'];
+		$pass = $SSH['password'];
+		
+		unset($SSH);
+		
+		$ssh = new ssh($host, $user, $pass);
+		
+		switch($type) {
+			case 'install':
+			$return = $ssh->write('cd $id; ./control.sh auto-install');
+			break;
+			case 'start':
+			$return = $ssh->write('cd $id; ./control.sh start');
+			break;	
+			case 'stop':
+			$return = $ssh->write('cd $id; ./control.sh stop');
+			break;	
+			case 'restart':
+			$return = $ssh->write('cd $id; ./control.sh restart');
+			break;	
+			case 'details':
+			$return = $ssh->write('cd $id; ./control.sh details');
+			break;	
+		}
+		
+		return $return;
+			
 	}
 	
 }
