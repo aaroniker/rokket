@@ -3,6 +3,8 @@
 class layout {
 	
 	public static $nav = [];
+	public static $jsFiles = [];
+	public static $cssFiles = [];
 	
 	public static $currentPage;
 	
@@ -10,6 +12,50 @@ class layout {
 		
 		self::$nav[$link] = ['name'=>$name, 'buttons'=>$buttons, 'link'=>$link, 'svg'=>$svg, 'main'=>$main];
 			
+	}
+	
+	public static function addJs($js_file, $attributes = []) {
+	
+		$attributes['src'] = $js_file;
+	
+		self::$jsFiles[] = $attributes;
+	
+	}
+	
+	public static function addCss($css_file, $media = 'screen', $attributes = []) {
+	
+		if(!isset($attributes['rel']))
+			$attributes['rel'] = 'stylesheet';
+	
+		$attributes['href'] = $css_file;
+		$attributes['media'] = $media;
+		
+		self::$cssFiles[] = $attributes;
+	
+	}
+	
+	public static function getCSS() {
+	
+		$return = '';
+		
+		foreach(self::$cssFiles as $css) {
+			$return .= '<link'.self::convertAttr($css).'>'.PHP_EOL;
+		}
+		
+		return $return;
+	
+	}
+	
+	public static function getJS() {
+	
+		$return = '';
+	
+		foreach(self::$jsFiles as $css) {
+			$return .= '<script'.self::convertAttr($css).'></script>'.PHP_EOL;
+		}
+	
+		return $return;
+	
 	}
 	
 	public static function getPage() {
@@ -88,6 +134,10 @@ class layout {
 		return $return;
 		
 	}
+	
+		protected static function convertAttr($attr) {
+			return html_convertAttribute($attr);
+		}
 	
 }
 
