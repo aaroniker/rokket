@@ -61,7 +61,7 @@
  * @category  Net
  * @package   Net_SSH2
  * @author    Jim Wigginton <terrafrost@php.net>
- * @copyright MMVII Jim Wigginton
+ * @copyright 2007 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://phpseclib.sourceforge.net
  */
@@ -3354,7 +3354,7 @@ class Net_SSH2
      */
     function _disconnect($reason)
     {
-        if ($this->bitmap) {
+        if ($this->bitmap & NET_SSH2_MASK_CONNECTED) {
             $data = pack('CNNa*Na*', NET_SSH2_MSG_DISCONNECT, $reason, 0, '', 0, '');
             $this->_send_binary_packet($data);
             $this->bitmap = 0;
