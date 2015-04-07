@@ -18,6 +18,8 @@ set_include_path(get_include_path().PATH_SEPARATOR.'lib/vendor/phpseclib');
 include_once('Net/SSH2.php');
 include_once('Net/SFTP.php');
 
+define('NET_SSH2_LOGGING', NET_SSH2_LOG_COMPLEX);
+
 include('lib/classes/dir.php');
 
 new dir();
@@ -69,6 +71,17 @@ if(!is_null($error)) {
 	echo message::success($success);	
 }
 
+layout::addNav(lang::get('dashboard'), 'dashboard', 'home', [], false);
+layout::addNav(lang::get('settings'), 'settings', 'settings', [], false);
+
+layout::addNav(lang::get('server'), 'server', 'list', ['add'], true);
+layout::addNav(lang::get('addons'), 'addons', 'alt', [], true);
+layout::addNav(lang::get('user'), 'user', 'users', ['add'], true);
+
+foreach(addonConfig::includeAllConfig() as $file) {
+	include($file);
+}
+
 if(userLogin::isLogged()) {
 	
 	$path = 'pages/'.$page.'.php';
@@ -90,13 +103,6 @@ if(ajax::is()) {
 	echo ajax::getReturn();
 	die;
 }
-
-layout::addNav(lang::get('dashboard'), 'dashboard', 'home', [], false);
-layout::addNav(lang::get('settings'), 'settings', 'settings', [], false);
-
-layout::addNav(lang::get('server'), 'server', 'list', ['add'], true);
-layout::addNav(lang::get('addons'), 'addons', 'alt', [], true);
-layout::addNav(lang::get('user'), 'user', 'users', ['add'], true);
 
 if(userLogin::isLogged()) {	
 	include(dir::layout('index.php', rp::get('layout')));	
