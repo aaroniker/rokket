@@ -1,5 +1,8 @@
 <?php
 
+$action = type::super('action', 'string');
+$addon = type::super('addon', 'string');
+
 if($action == 'delete') {
 	
 	$addonClass = new addon($addon, false);
@@ -108,9 +111,9 @@ if($action == 'help') {
 			}
 			
 			if($curAddon->isActive()) {
-				$active = '<a href="?page=addons&addon='.$dir.'&action=active" class="" title="'.lang::get('addon_actived').'"></a>';
+				$active = '<a href="?page=addons&addon='.$dir.'&action=active" class="" title="">'.lang::get('addon_actived').'</a>';
 			} else {
-				$active = '<a href="?page=addons&addon='.$dir.'&action=active" class="" title="'.lang::get('addon_not_actived').'"></a>';
+				$active = '<a href="?page=addons&addon='.$dir.'&action=active" class="" title="">'.lang::get('addon_not_actived').'</a>';
 			}
 					
 			$delete = '<a href="?page=addons&addon='.$dir.'&action=delete" class="delete"></a>';
