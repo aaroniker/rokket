@@ -1,0 +1,9 @@
+{
+	"name": "Console",
+	"version": 0.1,
+	"author": "Rokket",
+	"supportlink" : "http://rokket.info/forum",
+	"need": {
+		"version": 0.1
+	}
+}
