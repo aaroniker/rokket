@@ -21,7 +21,7 @@ class addonConfig {
 	}
 	
 	public static function getAll() {
-
+		
 		if(!count(self::$all)) {
 
 			$sql = new sql();		
@@ -32,7 +32,6 @@ class addonConfig {
 			}
 			
 		}
-
 		return self::$all;
 
 	}

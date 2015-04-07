@@ -48,7 +48,7 @@ class addonNeed {
 				continue;			
 			}
 			
-			if(dyn::checkVersion($config['version'], $version) === false) {
+			if(rp::checkVersion($config['version'], $version) === false) {
 				$return .=	sprintf(lang::get('addon_need_version'), $name, $version);
 				continue;
 			}
