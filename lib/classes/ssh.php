@@ -37,15 +37,21 @@ class ssh {
 	
 	}
 	
-	public function read() {
+	public function read($preg, $param) {
 		
-		return nl2br($this->ssh->read());
+		return $this->ssh->read($preg, $param);
 			
 	}
 	
 	public function getScreen() {
 		
 		return $this->ssh->getScreen();
+			
+	}
+	
+	public function getLog() {
+		
+		return $this->ssh->getLog();
 			
 	}
 	
