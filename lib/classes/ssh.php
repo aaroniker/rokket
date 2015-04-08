@@ -43,9 +43,15 @@ class ssh {
 			
 	}
 	
+	public function addScreen($name) {
+		
+		return $this->ssh->exec('screen -mdS '.$name);
+			
+	}
+	
 	public function getScreen() {
 		
-		return $this->ssh->getScreen();
+		return $this->ssh->exec('screen -ls');
 			
 	}
 	
