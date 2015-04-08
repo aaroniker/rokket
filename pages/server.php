@@ -106,10 +106,6 @@
         
     </div>
 </div>
-
-<?php
-	} elseif($action == 'edit' && $id) {
-?>
 	
 <?php	
 	} else {
@@ -162,9 +158,34 @@
 		
 	}
 	
+		
+	if($action == 'install' && $id) {
+		$server = new server($id);
+		$server->install();
+		$return = message::success(lang::get('server_install'));
+	}
+		
+	if(ajax::is()) {
+		
+		if($action == 'start' && $id) {
+			$server = new server($id);
+			$server->start();
+			$return = message::success(lang::get('server_started'));
+		}
+		
+		if($action == 'stop' && $id) {
+			$server = new server($id);
+			$server->stop();
+			$return = message::success(lang::get('server_stopped'));
+		}
+		
+		ajax::addReturn($return);
+		
+	}
+	
 	$table = new table();
 		
-	$table->addCollsLayout('25, 32%, *, 70, 100');
+	$table->addCollsLayout('25, 32%, *, 70, 170');
 	
 	$table->addRow()
 		->addCell("
@@ -186,7 +207,9 @@
 			
 			$id = $table->get('id');
 			
-			$status = $table->get('status');
+			$server = new server($id);
+			
+			$status = $server->status($table->get('status'));
 			
 			$table->addRow()
 				->addCell("
@@ -196,7 +219,7 @@
 				->addCell($table->get('name'))
 				->addCell($table->get('gameID'))
 				->addCell($table->get('port'))
-				->addCell($status);
+				->addCell($status, ['class'=>'toggleState']);
 			
 			$table->next();
 		

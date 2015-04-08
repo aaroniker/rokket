@@ -58,7 +58,19 @@ class server {
 		$dir = dir::backup("control/$id/");
 		
 		$sftp->put('control.sh', $dir.'control.sh', NET_SFTP_LOCAL_FILE);
+		
 		$sftp->chmod(0777, 'control.sh');
+		
+		$sftp->makedir("functions");
+		$sftp->chdir("functions");
+		
+		$functions = ['fn_install', 'fn_install_complete', 'fn_install_config'];
+		
+		foreach($functions as $file) {
+			$path = dir::functions('control/'.$file);	
+			$sftp->put($file, $path, NET_SFTP_LOCAL_FILE);
+			$sftp->chmod(0777, $file);
+		}
 		
 		return true;
 		
@@ -85,12 +97,6 @@ class server {
 	public function restart() {
 		
 		return $this->control('restart');
-		
-	}
-	
-	public function details() {
-		
-		return $this->control('details');
 		
 	}
 	
@@ -131,6 +137,48 @@ class server {
 		rmdir($path);
 	}
 	
+	public function status($status) {
+		
+		$id = $this->id;
+		
+		$SSH = rp::get('SSH');
+		
+		$host = $SSH['ip'];
+		$user = $SSH['user'];
+		$pass = $SSH['password'];
+		
+		unset($SSH);
+		
+		$sftp = new sftp($host, $user, $pass);
+		$sftp->chdir((string)$id);
+		
+		$ssh = new ssh($host, $user, $pass);
+		
+		if(is_array($sftp->nlist()) && in_array('status.txt', $sftp->nlist())) {
+			if($ssh->exec("cd $id; cat status.txt") == 0)
+				return lang::get('server_installing');
+			else {
+				if($status == 1) {
+					$state = lang::get('online');
+					$checked = 'checked="checked"';
+				} else {
+					$state = lang::get('offline');
+					$checked = '';
+				}
+				
+				return '
+					<div class="switch">
+                    	<input name="running[]" id="server'.$id.'" value="'.$id.'" type="checkbox" '.$checked.'>
+                    	<label for="server'.$id.'"></label>
+                    	<div>'.$state.'</div>
+                	</div>
+				';
+			}
+		} else
+			return lang::get('server_not_installed');
+		
+	}
+	
 	protected function control($type) {
 		
 		$id = $this->id;
@@ -145,25 +193,32 @@ class server {
 		
 		$ssh = new ssh($host, $user, $pass);
 		
+		$sql = new sql();
+		$sql->setTable('server');
+		$sql->setWhere('id='.$id);
+		
+		#$ssh->read('[prompt]');
+		
 		switch($type) {
 			case 'install':
-			$return = $ssh->write('cd $id; ./control.sh auto-install');
+			$ssh->exec("cd $id; ./control.sh auto-install  > /dev/null &");
+			$sql->addPost('status', 0);
 			break;
 			case 'start':
-			$return = $ssh->write('cd $id; ./control.sh start');
-			break;	
+			$ssh->exec("cd $id; ./control.sh start >> /dev/null 2>&1 & /n");
+			$sql->addPost('status', 1);
+			break;
 			case 'stop':
-			$return = $ssh->write('cd $id; ./control.sh stop');
-			break;	
+			$ssh->exec("cd $id; ./control.sh stop >> /dev/null 2>&1 & /n");
+			$sql->addPost('status', 0);
+			break;
 			case 'restart':
-			$return = $ssh->write('cd $id; ./control.sh restart');
-			break;	
-			case 'details':
-			$return = $ssh->write('cd $id; ./control.sh details');
-			break;	
+			$ssh->exec("cd $id; ./control.sh restart >> /dev/null 2>&1 & /n");
+			$sql->addPost('status', 1);
+			break;
 		}
 		
-		return $return;
+		$sql->update();
 			
 	}
 	

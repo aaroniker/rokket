@@ -227,4 +227,33 @@ $(document).ready(function() {
 			
 	});
 	
+	$(".toggleState input").change(function(){
+		
+		var id = $(this).val();
+		var input = $(this);
+		
+		if($(this).is(':checked')) {
+			$.ajax({
+				url: "index.php",
+				type: "POST",
+				data: { page: "server", action: "start", id : id },
+				success: function(data) {
+					$("#content").prepend(data);
+					input.parent().children('div').html('Online');
+				}
+			});
+		} else {
+			$.ajax({
+				url: "index.php",
+				type: "POST",
+				data: { page: "server", action: "stop", id : id },
+				success: function(data) {
+					$("#content").prepend(data);
+					input.parent().children('div').html('Offline');
+				}
+			});
+		}
+			
+	});
+	
 });
