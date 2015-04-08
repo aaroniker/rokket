@@ -1,0 +1,26 @@
+{
+    "name": "Counter Strike",
+	"id":	"cs",
+	"vars":		{
+		"hostname": {
+			"name": "Hostname",
+			"type": "string"
+		},
+		"rcon": {
+			"name": "Rcon Pw",
+			"type": "string"
+		},
+		"clientport": {
+			"name": "Clientport",
+			"type": "int"
+		},
+		"map":	{
+			"name": "Map",
+			"type": "de_dust2,de_dust,de_nuke,cs_office,de_inferno,de_train"
+		},
+		"maxplayers":	{
+			"name": "Slots",
+			"type":	"int"
+		}
+	}
+}
