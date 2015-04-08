@@ -87,12 +87,13 @@ if($action == 'help') {
 } else {
 	
 	$table = new table();
-	$table->addCollsLayout('25,*,215');
+	$table->addCollsLayout('25,*,215, 45');
 	
 	$table->addRow()
 	->addCell('')
 	->addCell(lang::get('name'))
-	->addCell(lang::get('actions'));
+	->addCell(lang::get('actions'))
+	->addCell('');
 	
 	$table->addSection('tbody');
 	
@@ -119,9 +120,10 @@ if($action == 'help') {
 			$delete = '<a href="?page=addons&addon='.$dir.'&action=delete" class="delete"></a>';
 			
 			$table->addRow()
-			->addCell('<a class="" href="?page=addons&addon='.$dir.'&action=help">?</a>')
+			->addCell('')
 			->addCell($curAddon->get('name').' <small>'.$curAddon->get('version').'</small>')
-			->addCell('<span class="btn-group">'.$install.$active.$delete.'</span>');
+			->addCell('<span class="btn-group">'.$install.$active.$delete.'</span>')
+			->addCell('<a class="help" href="?page=addons&addon='.$dir.'&action=help">?</a>');
 				
 		}
 	
