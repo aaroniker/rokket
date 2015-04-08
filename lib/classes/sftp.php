@@ -71,6 +71,12 @@ class sftp {
 		
 	}
 	
+	public function nlist() {
+		
+		return $this->sftp->nlist();
+		
+	}
+	
 	public function delete($file, $dir = false) {
 		
 		return $this->sftp->delete($file, $dir);
