@@ -739,6 +739,18 @@ table th {
   border-bottom: 1px solid #d9dee2;
   padding: 10px 0;
 }
+table .help {
+  display: block;
+  text-align: center;
+  width: 30px;
+  line-height: 30px;
+  margin: 2px 10px 2px 5px;
+  color: #fff;
+  background: #3c4048;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
 table tbody tr td {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
