@@ -86,6 +86,8 @@ if(userLogin::isLogged()) {
 	
 	$path = 'pages/'.$page.'.php';
 	
+	$path = extension::get('PAGE_PATH', $path);
+	
 	if(file_exists($path))
 		include($path);
 	else
