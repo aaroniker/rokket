@@ -1,3 +1,9 @@
 #page {
 	min-height: 630px;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Cantarell:700|Open+Sans:300&subset=cyrillic-ext);
+
+#terminal {
+	font-family: 'Cantrell', Arial;
+}
