@@ -41,6 +41,12 @@
 	"choose_server": "Choose a server first",
 	"server_deleted": "Server deleted",
 	"server_added": "Server added",
+	"server_installing": "Installing...",
+	"server_not_installed": "Not installed yet",
+	"server_install":	"Install server - this may take a while...",
+	"server_started":	"Server successfully started",
+	"server_stopped":	"Server successfully stopped",
+	"server_restart":	"Server restarted successfully",
 	
 	#Games
 	"game":					"Game",
