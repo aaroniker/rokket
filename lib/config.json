@@ -1,7 +1,7 @@
 {
     "name": "Rokket Panel",
     "url": "http:\/\/server.broken-gaming.de",
-    "version": "0.1",
+    "version": "0.3",
     "setup": false,
     "debug": true,
     "cache": false,
