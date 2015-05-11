@@ -1,5 +1,97 @@
 <?php
-	if($action == 'edit' && $id) {
+	if($action == 'add') {
+?>
+
+<div class="panel">
+	<div class="top">
+		<h3><?=lang::get('user_add'); ?></h3>
+	</div>
+	<div class="content pad">
+    
+    	<form action="?page=user" method="post">
+    
+		<div class="row">
+                
+            <div class="col-md-6">
+                <div class="input row">
+                    <label class="col-sm-5"><?=lang::get('firstname'); ?></label>
+                    <div class="col-sm-7">
+                        <input type="text" name="firstname">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="input row">
+                    <label class="col-sm-5"><?=lang::get('name'); ?></label>
+                    <div class="col-sm-7">
+                        <input type="text" name="name">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="input row">
+                    <label class="col-sm-5"><?=lang::get('email'); ?></label>
+                    <div class="col-sm-7">
+                        <input type="email" name="email">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="input row">
+                    <label class="col-sm-5"><?=lang::get('username'); ?></label>
+                    <div class="col-sm-7">
+                        <input type="text" name="username">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="input row">
+                    <label class="col-sm-5"><?=lang::get('admin'); ?></label>
+                    <div class="col-sm-7">
+      
+                        <div class="switch">
+                            <input name="admin" id="admin" value="1" type="checkbox">
+                            <label for="admin"></label>
+                            <div><?=lang::get('yes'); ?></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+        <hr>
+        
+        <h2><?=lang::get('password'); ?></h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input row">
+                    <label class="col-sm-5"><?=lang::get('password'); ?></label>
+                    <div class="col-sm-7">
+                        <input type="text" name="password">
+                    </div>
+                </div>
+            </div>
+        </div>       
+                
+        <hr>
+            
+        <a href="?page=user" class="light button"><?=lang::get('back'); ?></a>
+        <button type="submit" name="sendNew"><?=lang::get('add'); ?></button>
+        
+        </form>
+        
+    </div>
+</div>
+
+<?php
+	} elseif($action == 'edit' && $id) {
 		
 		if(isset($_POST['send'])) {
 		
@@ -197,6 +289,58 @@
 <?php	
 	} else {
 		
+	if(isset($_POST['sendNew'])) {	
+	
+		$new = new sql();
+		$new->setTable('user');
+		
+		$admin = (isset($_POST['admin'])) ? 1 : 0;
+		
+		$salt = userLogin::generateSalt();
+			
+		$new->addPost('salt', $salt);
+		$new->addPost('firstname', type::post('firstname'));
+		$new->addPost('name', type::post('name'));
+		$new->addPost('email', type::post('email'));
+		$new->addPost('admin', $admin);
+		$new->addPost('username', type::post('username'));
+		$new->addPost('password', userLogin::hash(type::post('password'), $salt));
+		
+		$new->save();
+		
+		echo message::success(lang::get('user_added'));
+	
+	}
+	
+	if(isset($_POST['delete'])) {	
+		
+		$ids = type::post('ids');
+		
+		if(is_array($ids) && count($ids) >= 1) {
+			
+			if(in_array(rp::get('user')->get('id'), $ids)) {
+				
+				echo message::danger(lang::get('user_delete_own'));
+				
+			} else {
+			
+				foreach($ids as $var) {
+					$sql = new sql();
+					$sql->setTable('user');
+					$sql->setWhere("id=".$var);
+					$sql->delete();
+				}
+				
+				echo message::success(lang::get('user_deleted'));
+			
+			}
+		
+		} else
+		
+			echo message::danger(lang::get('choose_user'));
+		
+	}
+		
 	$table = new table();
 		
 	$table->addCollsLayout('25, 30%, *, 140, 100');
@@ -223,7 +367,7 @@
 		
 		$table->addRow()
 			->addCell("
-				<input type='checkbox' id='id".$id."'>
+				<input type='checkbox' name='ids[]' value='".$id."' id='id".$id."'>
 				<label for='id".$id."'></label>
 			", ['class'=>'checkbox'])
 			->addCell($table->get('firstname')." ".$table->get('name'))
@@ -237,17 +381,17 @@
 ?>
 
 <div class="panel">
+    <form action="" method="post">
     <div class="top">
         <h3><?=$table->numSql().' '.lang::get('user'); ?> </h3>
         <ul>
             <li>
-                <a href="">
-                	<?=layout::svg('delete'); ?>
-                </a>
+                <button type="submit" name="delete"><?=layout::svg('delete'); ?></button>
             </li>
         </ul>
     </div>
     <?=$table->show(); ?>
+    </form>
 </div>
 
 <?php } ?>
