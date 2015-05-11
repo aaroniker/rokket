@@ -1,12 +1,13 @@
 //Variables
 
-@primary:	#ec7371;
+@primary:	#da5247;
+@primary2:	#a73a4f;
 @success:	#4abb5a;
 @error:		#df5452;
 @info:		#60a2fb;
 
-@darker:	#31343b;
-@dark:		#3c4048;
+@darker:	#0e0f12;
+@dark:		#1f2028;
 @light:		#f5f6f9;
 @white:		#fff;
 
@@ -14,7 +15,7 @@
 @border:		#d9dee2;
 
 @font-dark:		#31343b;
-@font:			#9ba0aa;
+@font:			#777e8e;
 @font-light:	#d8d8da;
 
 @space-big: 	45px;
@@ -56,6 +57,17 @@
 	background: -moz-linear-gradient(center bottom, @start 0%, @stop 100%);
 	background: -o-linear-gradient(@stop, @start);
 	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+
+.gradientDir (@start: #fff, @stop: #000) {
+	background: @start;
+	background: -moz-linear-gradient(-45deg, @start 0%, @stop 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,@start), color-stop(100%,@stop));
+	background: -webkit-linear-gradient(-45deg, @start 0%,@stop 100%);
+	background: -o-linear-gradient(-45deg, @start 0%,@stop 100%);
+	background: -ms-linear-gradient(-45deg, @start 0%,@stop 100%);
+	background: linear-gradient(135deg, @start 0%,@stop 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@start', endColorstr='@stop',GradientType=1 );
 }
 
 .transition (@duration:0.4s, @ease:ease-in-out) {
@@ -159,7 +171,7 @@ span {
 
 .button,
 button {
-	background: @primary;
+	.gradientDir(@primary, @primary2);
 	.round();
 	padding: 8px 15px;
 	border: 0;
@@ -362,7 +374,7 @@ button {
 						svg {
 							fill: @white;
 						}
-						background: @primary;
+						.gradientDir(@primary, @primary2);
 					}
 					display: block;
 					height: 36px;
@@ -375,7 +387,7 @@ button {
 						svg {
 							fill: @white;
 						}
-						background: @primary;
+						.gradientDir(@primary, @primary2);
 					}
 				}
 				float: left;
