@@ -683,6 +683,9 @@ input {
 .panel .content .input:last-of-type {
   margin-bottom: 0;
 }
+.panel .content.pad .input:last-of-type {
+  margin-bottom: 20px;
+}
 .tabs > ul {
   margin-bottom: -1px;
   overflow: hidden;
