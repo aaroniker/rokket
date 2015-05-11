@@ -157,7 +157,6 @@
 			echo message::danger(lang::get('choose_server'));
 		
 	}
-	
 		
 	if($action == 'install' && $id) {
 		$server = new server($id);
