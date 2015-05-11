@@ -55,7 +55,12 @@
 	
 	#User
 	"user":					"User",
+	"user_add":				"Add user",
 	"user_edited":			"User edited successfully",
+	"user_delete_own": "You can't delete your own account!",
+	"choose_user": "Choose a user first",
+	"user_deleted": "User deleted",
+	"user_added": "User added",
 	"username":			"Username",
 	"profile":					"Profile",
 	"email":					"Email",

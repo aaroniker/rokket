@@ -55,8 +55,13 @@
 	
 	#User
 	"user":					"Benutzer",
+	"user_add":	"Benutzer hinzufügen",
+	"user_delete_own": "Eigener Benutzer nicht löschbar!",
 	"users":					"Benutzer",
+	"choose_user": "Wähle zuerst einen Benutzer",
+	"user_deleted": "Benutzer gelöscht",
 	"user_edited":			"Benutzer erfolgreich bearbeitet",
+	"user_added": "Benutzer hinzugefügt",
 	"username":			"Benutzername",
 	"profile":					"Profil",
 	"email":					"E-Mail",
