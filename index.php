@@ -71,7 +71,7 @@ if(!is_null($error)) {
 	echo message::success($success);	
 }
 
-layout::addNav(lang::get('dashboard'), 'dashboard', 'home', [], false);
+layout::addNav(lang::get('dashboard'), 'dashboard', 'home', ['refresh'], true);
 layout::addNav(lang::get('settings'), 'settings', 'settings', [], false);
 
 layout::addNav(lang::get('server'), 'server', 'list', ['add'], true);

@@ -5,10 +5,6 @@
     	<div id="control">
         	<ul>
             	<li>
-					<?=layout::svg('home'); ?>
-                    <a href="?page=dashboard"><?=lang::get('dashboard'); ?></a>
-                </li>
-            	<li>
 					<?=layout::svg('settings'); ?>
                 	<a href="?page=settings"><?=lang::get('settings'); ?></a>
                 </li>
@@ -27,14 +23,29 @@
                 
                 <div id="user">
                 	<img src="/media/user/aaron-iker.png">
+                	
+					<div class="text"><?=rp::get('user')->get('firstname').' '.rp::get('user')->get('name'); ?></div>
+                    
+                    <a>
+                    	<?=layout::svg('down'); ?>
+                    </a>
+                    
                     <span>2</span>
-                    <?=layout::svg('more'); ?>
+                    
+                    <div class="clearfix"></div>
                 </div>
                 
-                <?=layout::getNav(); ?>
+                <h4><?=lang::get('navigation'); ?></h4>
                 
-                <a href="?logout=1" id="logout">
-                	<?=layout::svg('power'); ?>
+                <?=layout::getNav(true); ?>
+                
+                <a id="expand">
+                	<div class="left">
+                		<?=layout::svg('left'); ?>
+                    </div>
+                    <div class="right">
+                		<?=layout::svg('right'); ?>
+                    </div>
                 </a>
                 
             </section>
