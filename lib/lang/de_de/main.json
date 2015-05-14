@@ -93,6 +93,7 @@
 	#Dashboard
 	"dashboard":			"Dashboard",
 	"distribution":			"Distribution",
+	"latest_blog":			"Letzte Blogeinträge",
 	"firmware":				"Firmware",
 	"hostname":				"Hostname",
 	"kernel":				"Kernel",
@@ -103,7 +104,7 @@
 	"server_info":			"Server Informationen",
 	"ethernet":				"Ethernet",
 	"rokket_about":			"Über Rokket",
-	"rokket_text":			"Rokket ist ein kostenloses Open-Source Webinterface für die Verwaltung von Gameservern - hier findest du weitere Informationen:",
+	"rokket_text":			"Rokket ist ein kostenloses Open-Source Webinterface für die Verwaltung von Gameservern - weitere Informationen erhälts du auf unserer <a target=\"_blank\" href=\"http://rokket.info\">Website</a>, Facebook oder GitHub. Das Webinterface ist aktuell in der Beta-Phase und noch nicht zur professionellen Nutzung geeignet...",
 	"visit_website":		"Besuche unsere Webseite",
 	
 	#Addon

@@ -92,6 +92,7 @@
 	#Dashboard
 	"dashboard":			"Dashboard",
 	"distribution":			"Distribution",
+	"latest_blog":			"Latest updates",
 	"firmware":				"Firmware",
 	"hostname":				"Hostname",
 	"kernel":				"Kernel",
@@ -102,7 +103,7 @@
 	"server_info":			"Server information",
 	"ethernet":				"Ethernet",
 	"rokket_about":			"About Rokket",
-	"rokket_text":			"Rokket is a free open source webinterface for managing game servers - get more information about Rokket:",
+	"rokket_text":			"Rokket is a free open source webinterface for managing game servers - get more information about Rokket on our <a target=\"_blank\" href=\"http://rokket.info\">website</a>, Facebook or GitHub. This webinterface is still in beta status and not ready to be fully used...",
 	"visit_website":		"Visit our website",
 	
 	#Addon
