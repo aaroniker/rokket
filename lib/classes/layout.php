@@ -64,13 +64,16 @@ class layout {
 		return (isset(self::$nav[$page]['name'])) ? self::$nav[$page]['name'] : '';
 	}
 	
-	public static function getNav() {
+	public static function getNav($full = false) {
 		$page = type::super('page', 'string', 'dashboard');
 		
 		$return = '<nav>';
         $return .= '<ul>';
 		
 		foreach(self::$nav as $var) {
+			
+			$span = ($full) ? '<span>'.$var['name'].'</span>' : '';
+			
 			if($var['main']) {
 				$active = ($var['link'] == $page) ? 'class="active"' : '';
 				
@@ -78,6 +81,7 @@ class layout {
 					<li '.$active.'>
 						<a href="?page='.$var['link'].'">
 							'.self::svg($var['svg']).'
+							'.$span.'
 						</a>
 					</li>';
 			}
@@ -95,10 +99,12 @@ class layout {
 		$action = type::super('action', 'string');
 		
 		$activeA = ($action == 'add') ? 'class="active"' : '';
+		$activeR = '';
 		$activeS = ($action == 'settings') ? 'class="active"' : '';
 		
 		$buttons = [
 			'add'=> '<li '.$activeA.'><a href="?page='.$page.'&action=add">'.self::svg('add').'</a></li>',
+			'refresh'=> '<li '.$activeR.'><a>'.self::svg('refresh').'</a></li>',
 			'settings'=> '<li '.$activeS.'><a href="?page='.$page.'&action=settings">'.self::svg('settings').'</a></li>'
 		];
 			
