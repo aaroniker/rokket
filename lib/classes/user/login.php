@@ -41,7 +41,7 @@ class userLogin {
 			return false;
 		
 		self::loginSession();
-		self::$userID = $session;
+		self::$userID = ($session) ? $session : $cookie;
 		
 		return true;		
 		
