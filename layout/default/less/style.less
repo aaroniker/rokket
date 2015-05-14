@@ -6,23 +6,26 @@
 @error:		#df5452;
 @info:		#60a2fb;
 
-@darker:	#0e0f12;
-@dark:		#1f2028;
+@darker:	#272930;
+@dark:		#2f323a;
 @light:		#f5f6f9;
+@light2:	#e3e4e8;
 @white:		#fff;
 
+@border-darker:	#b3b6ba;
 @border-dark:	#c7cace;
 @border:		#d9dee2;
 
 @font-dark:		#31343b;
-@font:			#777e8e;
+@font:			#828793;
 @font-light:	#d8d8da;
 
 @space-big: 	45px;
 @space: 		35px;
 @space-small:	25px;
 
-@left:	110px;
+@left:			220px;
+@left-small:	85px;
 
 //Mixins
 
@@ -32,10 +35,10 @@
 	border-radius: @radius;
 }
 
-.box-shadow (@x: 0, @y: 0, @blur: 5px, @alpha: 0.8) {
-	-webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-	-moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-	box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+.box-shadow (@x: 0, @y: 0, @blur: 5px, @alpha: 0.8, @inset: outset) {
+	-webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha) @inset;
+	-moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha) @inset;
+	box-shadow: @x @y @blur rgba(0, 0, 0, @alpha) @inset;
 }
 
 .opacity (@opacity: 0.2) {
@@ -132,7 +135,8 @@ body {
 	color: @font;
 	padding: @space-big;
 	font-size: 14px;
-	font-family: 'PT Sans', Arial;
+	line-height: 22px;
+	font-family: 'Roboto', Arial;
 }
 
 a {
@@ -172,8 +176,8 @@ span {
 .button,
 button {
 	.gradientDir(@primary, @primary2);
-	.round();
-	padding: 8px 15px;
+	.round(19px);
+	padding: 8px 17px;
 	border: 0;
 	margin: 0 15px 0 0;
 	display: inline-block;
@@ -219,9 +223,9 @@ button {
 	&.svg {
 		svg {
 			position: absolute;
-			width:16px;
+			width: 16px;
 			height: 16px;
-			left: 10px;
+			left: 16px;
 			top: 10px;
 		}
 		position: relative;
@@ -251,40 +255,49 @@ button {
 
 #user {
 	img {
-		width: 60%;
+		float: left;
+		width: 32px;
+		height: 32px;
 		.round(50%);
-		margin: 0 auto;
 		display: block;
+		margin: 0 13px 0 0;
 	}
 	span {
 		.round(50%);
 		width: 20px;
 		height: 20px;
-		background: @primary;
-		color: @white;
+		margin: 6px 0;
+		display: block;
+		float: right;
+		background: @dark;
+		color: @font;
 		text-align: center;
 		line-height: 20px;
 		font-size: 11px;
-		position: absolute;
-		top: -5px;
-		right: 20%;
 		z-index: 1;
 	}
 	svg {
-		width: 40px;
-		height: 40px;
-		margin: 0 0 0 -20px;
-		fill: @darker;
+		width: 16px;
+		height: 16px;
+		fill: @font;
 		display: block;
-		position: absolute;
-		left: 50%;
-		bottom: -25px;
-		z-index: 1;
 	}
-	margin: @space-small 0;
-	padding-bottom: @space-small;
+	a {
+		display: block;
+		float: right;
+		margin: 8px 0 8px 8px;
+		cursor: pointer;
+	}
+	.text {
+		float: left;
+		font-size: 13px;
+	}
+	line-height: 32px;
 	width: 100%;
 	position: relative;
+	padding: 12px 20px;
+	background: @darker;
+	.box-shadow(0, 2px, 3px, 0.1, inset);
 }
 
 #control {
@@ -308,6 +321,7 @@ button {
 			margin-left: @space-small;
 			position: relative;
 		}
+		padding: 0 35px 0 0;
 		overflow: hidden;
 	}
 	float: right;
@@ -321,25 +335,34 @@ button {
 }
 
 #page {
-	overflow: hidden;
-	.box-shadow (0, 0, 16px, 0.2);
 	background: @light;
 	position: relative;
 	min-height: 540px;
+	-webkit-box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
+	box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
 }
 
 #main {
+	&.small {
+		margin-left: @left-small;
+	}
 	margin-left: @left;
+	.transition();
 }
 
 #head {
 	h1 {
-		line-height: 80px;
-		font-family: 'Lato', Arial;
-		font-weight: 300;
-		font-size: 28px;
-		color: @font-dark;
+		margin: 19px 0;
+		line-height: 40px;
+		font-family: 'Roboto', Arial;
+		font-size: 15px;
+		color: @font;
+		font-weight: 400;
 		float: left;
+		border: 1px solid @border;
+		border-radius: 20px;
+		padding: 0 25px;
 	}
 	#search {
 		svg {
@@ -350,10 +373,11 @@ button {
 			position: absolute;
 			z-index: 1;
 			top: 10px;
-			left: 10px;
+			left: 12px;
 		}
 		input {
-			padding-left: 34px;
+			padding-left: 36px;
+			border-radius: 18px;
 		}
 		float: right;
 		margin: 22px 0;
@@ -379,7 +403,8 @@ button {
 					display: block;
 					height: 36px;
 					padding: 8px;
-					.round();
+					cursor: pointer;
+					.round(50%);
 					.transition();
 				}
 				&.active {
@@ -396,12 +421,23 @@ button {
 			overflow: hidden;
 		}
 		float: left;
-		padding: 22px @space-small;
+		padding: 22px 15px;
+	}
+	&:before {
+		height: 3px;
+		position: absolute;
+		left: 6px;
+		right: 0;
+		bottom: -4px;
+		.gradient(@light, @light2);
+		content: "";
 	}
 	height: 80px;
 	width: 100%;
 	background: @white;
+	position: relative;
 	padding: 0 @space;
+	border-bottom: 1px solid @border-dark;
 }
 
 #content {
@@ -415,11 +451,11 @@ button {
 		margin-bottom: 12px;
 	}
 	h2 {
-		font-family: 'Lato', Arial;
+		font-family: 'Roboto', Arial;
 		font-weight: 400;
 		font-size: 18px;
 		color: @font-dark;
-		margin: 0 0 15px 0;
+		margin: 12px 0 15px 0;
 	}
 	.subnav {
 		.left {
@@ -464,7 +500,7 @@ button {
 		overflow: hidden;
 	}
 	h3 {
-		font-family: 'Lato', Arial;
+		font-family: 'Roboto', Arial;
 		font-weight: 400;
 		font-size: 16px;
 		color: @font;
@@ -548,14 +584,84 @@ button {
 }
 
 #left {
+	&.small {
+		h4 {
+			display: none;
+		}
+		nav {	
+			svg {
+				left: 50%;
+				margin: -9px 0 0 -9px;
+			}
+			li {
+				a {
+					height: 54px;
+					padding: 0;
+				}
+				span {
+					display: none;
+				}
+				&.active a {
+					svg {
+						left: 50%;
+					}
+					padding: 0;
+				}
+			}
+		}
+		#expand {
+			.left {
+				display: none;
+			}
+			.right {
+				display: block;
+			}
+		}
+		#user {
+			img {
+				float: none;
+				width: 80%;
+				height: auto;
+				.round(50%);
+				display: block;
+				margin: 0 auto;
+				.transition();
+			}
+			span {
+				width: 15px;
+				height: 15px;
+				margin: 0;
+				display: block;
+				float: none;
+				position: absolute;
+				top: 17%;
+				right: 17%;
+				background: @primary;
+				color: @white;
+				line-height: 15px;
+				font-size: 9px;
+				.transition();
+			}
+			a {
+				display: none;
+			}
+			.text {
+				display: none;
+			}
+			margin-bottom: 20px;
+			.transition();
+			padding: 12px;
+		}
+		width: @left-small;
+	}
 	nav {	
 		svg {
-			width: 20px;
-			height: 20px;
+			width: 18px;
+			height: 18px;
 			position: absolute;
 			top: 50%;
-			left: 50%;
-			margin: -10px 0 0 -10px;
+			left: 35px;
+			margin: -9px 0 0 0;
 			fill: @font-light;
 			display: block;
 		}
@@ -566,18 +672,25 @@ button {
 				}
 				.transition();
 				.opacity();
+				color: @font-light;
 				display: block;
 				width: 100%;
-				height: 80px;
+				height: 54px;
+				line-height: 54px;
 				position: relative;
+				padding: 0 0 0 70px;
+				font-size: 14px;
 			}
 			&.active a {
 				svg {
 					fill: @white;
+					left: 31px;
 				}
 				.opacity(1);
-				background: @darker;
 				border-left: 4px solid @primary;
+				padding: 0 0 0 66px;
+				background: @darker;
+				.box-shadow(0, 2px, 3px, 0.1, inset);
 			}
 		}
 	}
@@ -586,9 +699,9 @@ button {
 			.flame {
 				fill: @primary;
 			}
-			width: 32px;
-			height: 32px;
-			margin: -16px 0 0 -16px;
+			width: 40px;
+			height: 40px;
+			margin: -20px 0 0 -20px;
 			position: absolute;
 			display: block;
 			left: 50%;
@@ -597,13 +710,15 @@ button {
 			.rotation(45deg);
 		}
 		display: block;
-		background: @darker;
 		width:100%;
 		height: 80px;
 		position: relative;
 	}
-	#logout {
+	#expand {
 		svg {
+			&:hover {
+				.opacity(1);
+			}
 			width: 20px;
 			height: 20px;
 			position: absolute;
@@ -612,6 +727,15 @@ button {
 			margin: -10px 0 0 -10px;
 			fill: @font-light;
 			display: block;
+			cursor: pointer;
+			.opacity();
+			.transition();
+		}
+		.left {
+			display: block;
+		}
+		.right {
+			display: none;
 		}
 		position: absolute;
 		bottom: 0;
@@ -619,11 +743,27 @@ button {
 		right: 0;
 		height: 80px;
 		display: block;
-		.opacity();
-		.transition();
-		&:hover {
-			.opacity(1);
-		}
+	}
+	&:before {
+		position: absolute;
+		width: 6px;
+		top: 0;
+		bottom: 0;
+		right: -6px;
+		content: "";
+		background: @border-dark;
+		border-right: 1px solid @border-darker;
+		z-index: 1;
+	}
+	h4 {
+		font-family: 'Roboto', Arial;
+		text-transform: uppercase;
+		font-size: 10px;
+		font-weight: normal;
+		color: @font;
+		margin: 20px 0 10px 0;
+		padding: 0 35px;
+		.opacity(0.3);
 	}
 	width: @left;
 	position: absolute;
@@ -631,7 +771,7 @@ button {
 	top: 0;
 	bottom: 0;
 	background: @dark;
-	border-right: 6px solid @border-dark;
+	.transition();
 }
 
 input {
@@ -675,7 +815,7 @@ input {
 .panel {
 	.top {
 		h3 {
-			font-family: 'Lato', Arial;
+			font-family: 'Roboto', Arial;
 			font-size: 16px;
 			font-weight: 400;
 			color: @font-dark;
@@ -804,7 +944,7 @@ table {
 		margin: 2px 10px 2px 5px;
 		color: @white;
 		background: @dark;
-		.round(2px);
+		.round(50%);
 	}
 	tbody {
 		tr {
@@ -1121,10 +1261,68 @@ table {
 		background: @primary;
 		color: @white;
 	}
-	background: @dark;
+	background: @darker;
 	padding: @space-small;
 	overflow: hidden;
 	margin-bottom: @space;
+}
+
+.timeline {
+	&:before {
+		position: absolute;
+		width: 2px;
+		height: 100%;
+		left: 20px;
+		content: "";
+		background: @border;
+	}
+	.item {
+		.circle {
+			position: absolute;
+			top: 20px;
+			left: -22px;
+			background: @border;
+			border: 1px solid @border;
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+		}
+		.text {
+			position: relative;
+			z-index: 2;
+			padding: 15px 20px;
+			margin-bottom: 15px;
+			background: @white;
+			-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+			.round(3px);
+			&:before {
+				position: absolute;
+				z-index: 0;
+				content: "";
+				top: 25px;
+				left: -6px;
+				box-sizing: border-box;
+				border: 5px solid transparent;
+				border-top-color: #fff;
+				border-bottom-color: transparent;
+				border-left-color: #fff;
+				border-right-color: transparent;
+				transform-origin: 0 0;
+				transform: rotate(-45deg);
+			}
+			p {
+				margin: 0 0 2px 0;
+			}
+			a {
+				color: @font-dark;
+			}
+		}
+		position: relative;
+	}
+	position: relative;
+	padding-left: 40px;
+	margin: 20px 0 0 0;
 }
 
 .bt10 { padding: 0 0 10px 0; }
