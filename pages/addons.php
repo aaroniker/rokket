@@ -87,12 +87,12 @@ if($action == 'help') {
 } else {
 	
 	$table = new table();
-	$table->addCollsLayout('25,*,215, 45');
+	$table->addCollsLayout('25,*,215, 70');
 	
 	$table->addRow()
 	->addCell('')
 	->addCell(lang::get('name'))
-	->addCell(lang::get('actions'))
+	->addCell(lang::get('status'))
 	->addCell('');
 	
 	$table->addSection('tbody');
@@ -104,25 +104,45 @@ if($action == 'help') {
 		foreach($addons as $dir) {
 			
 			$curAddon = new addon($dir);
-			
-			if($curAddon->isInstall()) {
-				$install = '<a href="?page=addons&addon='.$dir.'&action=install" class="">'.lang::get('addon_installed').'</a>';
-			} else {
-				$install = '<a href="?page=addons&addon='.$dir.'&action=install" class="">'.lang::get('addon_not_installed').'</a>';
-			}
-			
-			if($curAddon->isActive()) {
-				$active = '<a href="?page=addons&addon='.$dir.'&action=active" class="" title="">'.lang::get('addon_actived').'</a>';
-			} else {
-				$active = '<a href="?page=addons&addon='.$dir.'&action=active" class="" title="">'.lang::get('addon_not_actived').'</a>';
-			}
+			$status = '';
 					
 			$delete = '<a href="?page=addons&addon='.$dir.'&action=delete" class="delete"></a>';
+			
+			$status .= '
+				<form action="" method="get">
+					<input type="hidden" name="page" value="addons">
+					<input type="hidden" name="addon" value="'.$dir.'">
+					<select class="addonAction" name="action">';
+					
+					if($curAddon->isActive())
+						$status .= '<option selected="selected" value="">'.lang::get('addon_actived').'</option>';
+					elseif($curAddon->isInstall())
+						$status .= '<option selected="selected" value="">'.lang::get('addon_installed').'</option>';
+					else
+						$status .= '<option selected="selected" value="">'.lang::get('addon_not_installed').'</option>';
+					
+					if($curAddon->isInstall()) {
+						$status .= '<option value="install">'.lang::get('uninstall').'</option>';
+					} else {
+						$status .= '<option value="install">'.lang::get('install').'</option>';
+					}
+					
+					if($curAddon->isActive()) {
+						$status .= '<option value="active">'.lang::get('deactivate').'</option>';
+					} else {
+						$status .= '<option value="active">'.lang::get('activate').'</option>';
+					}
+			
+					$status .= '<option value="delete">'.lang::get('delete').'</option>';
+					
+			$status .= '</select>
+				</form>
+			';
 			
 			$table->addRow()
 			->addCell('')
 			->addCell($curAddon->get('name').' <small>'.$curAddon->get('version').'</small>')
-			->addCell('<span class="btn-group">'.$install.$active.$delete.'</span>')
+			->addCell('<span class="btn-group">'.$status.'</span>')
 			->addCell('<a class="help" href="?page=addons&addon='.$dir.'&action=help">?</a>');
 				
 		}

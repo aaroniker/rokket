@@ -229,8 +229,16 @@ $(document).ready(function() {
 				
 		});
 		
+		$(".addonAction").change(function() {
+			$(this).parent().parent().trigger('submit');
+		});
+		
 		$("#expand").click(function() {
 			$("#left, #main").toggleClass('small');	
+		});
+		
+		$("#user .down").click(function() {
+			$("#user ul").slideToggle();	
 		});
 		
 		$(".toggleState input").change(function(){
@@ -265,6 +273,8 @@ $(document).ready(function() {
 	}
 	
 	// Load JS after less.js compiled - just for demo
-	setTimeout(init, 300);
+	//setTimeout(init, 300);
+	
+	init();
 	
 });
