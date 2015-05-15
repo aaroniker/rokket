@@ -1,5 +1,43 @@
 <?php
-	if($action == 'add') {
+	
+	if($action == 'games') {
+?>
+
+<div class="row">
+
+    <div class="col-md-12">
+    	<?php
+		
+			$table = new table();
+				
+			$table->addCollsLayout('*, 20%');
+			
+			$table->addRow()
+				->addCell(lang::get('name'), ['class' => 'first'])
+				->addCell(lang::get('id'));
+			
+			$table->addSection('tbody');
+			
+			foreach(games::getAll() as $game)
+				
+				$table->addRow()
+					->addCell($game['name'], ['class' => 'first'])
+					->addCell($game['id']);
+		?>
+		
+		<div class="panel">
+			<div class="top">
+				<h3><?=lang::get('games'); ?></h3>
+			</div>
+			<?=$table->show(); ?>
+		</div>
+        
+    </div>
+
+</div>
+
+<?php
+	} elseif($action == 'add') {
 		
 		if(ajax::is()) {
 			
@@ -235,7 +273,7 @@
 
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-12">
     
         <div class="panel">
         	<form action="" method="post">
@@ -253,35 +291,6 @@
     
     </div>
     
-    <div class="col-md-4">
-    	<?php
-		
-			$table = new table();
-				
-			$table->addCollsLayout('*, 80');
-			
-			$table->addRow()
-				->addCell(lang::get('name'), ['class' => 'first'])
-				->addCell(lang::get('id'));
-			
-			$table->addSection('tbody');
-			
-			foreach(games::getAll() as $game)
-				
-				$table->addRow()
-					->addCell($game['name'], ['class' => 'first'])
-					->addCell($game['id']);
-		?>
-		
-		<div class="panel">
-			<div class="top">
-				<h3><?=lang::get('games'); ?></h3>
-			</div>
-			<?=$table->show(); ?>
-		</div>
-        
-    </div>
-
 </div>
 
 <?php } ?>

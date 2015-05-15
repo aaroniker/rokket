@@ -99,11 +99,13 @@ class layout {
 		$action = type::super('action', 'string');
 		
 		$activeA = ($action == 'add') ? 'class="active"' : '';
+		$activeG = ($action == 'games') ? 'class="active"' : '';
 		$activeR = '';
 		$activeS = ($action == 'settings') ? 'class="active"' : '';
 		
 		$buttons = [
 			'add'=> '<li '.$activeA.'><a href="?page='.$page.'&action=add">'.self::svg('add').'</a></li>',
+			'games'=> '<li '.$activeG.'><a href="?page='.$page.'&action=games">'.self::svg('game').'</a></li>',
 			'refresh'=> '<li '.$activeR.'><a>'.self::svg('refresh').'</a></li>',
 			'settings'=> '<li '.$activeS.'><a href="?page='.$page.'&action=settings">'.self::svg('settings').'</a></li>'
 		];
@@ -141,9 +143,9 @@ class layout {
 		
 	}
 	
-		protected static function convertAttr($attr) {
-			return html_convertAttribute($attr);
-		}
+	protected static function convertAttr($attr) {
+		return html_convertAttribute($attr);
+	}
 	
 }
 
