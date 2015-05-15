@@ -73,9 +73,12 @@ class dir {
 
 	}
 	
-	public static function lang($lang, $file = '') {
-	
-		return self::base('lib'.DIRECTORY_SEPARATOR.'lang'.DIRECTORY_SEPARATOR.$lang.DIRECTORY_SEPARATOR.$file);
+	public static function lang($lang = false, $file = '') {
+		
+		if($lang)
+			return self::base('lib'.DIRECTORY_SEPARATOR.'lang'.DIRECTORY_SEPARATOR.$lang.DIRECTORY_SEPARATOR.$file);
+		
+		return self::base('lib'.DIRECTORY_SEPARATOR.'lang'.DIRECTORY_SEPARATOR.$file);
 	
 	}
 	
