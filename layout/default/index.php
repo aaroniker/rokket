@@ -22,17 +22,33 @@
                 </a>
                 
                 <div id="user">
-                	<img src="/media/user/aaron-iker.png">
+                	<img src="/media/user/default.png">
                 	
 					<div class="text"><?=rp::get('user')->get('firstname').' '.rp::get('user')->get('name'); ?></div>
                     
-                    <a>
+                    <a class="down">
                     	<?=layout::svg('down'); ?>
                     </a>
                     
-                    <span>2</span>
+                    <span>0</span>
                     
                     <div class="clearfix"></div>
+                    
+                    <ul>
+                    	<li>
+                        	<a href="?page=user&action=edit&id=<?=rp::get('user')->get('id'); ?>">
+                            	<?=layout::svg('users'); ?>
+								<?=lang::get('profile'); ?>
+                            </a>
+                        </li>
+                    	<li>
+                        	<a href="?logout=1">
+                            	<?=layout::svg('power'); ?>
+								<?=lang::get('logout'); ?>
+                            </a>
+                        </li>
+                    </ul>
+                    
                 </div>
                 
                 <h4><?=lang::get('navigation'); ?></h4>
