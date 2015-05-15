@@ -237,7 +237,20 @@ $(document).ready(function() {
 			$("#left, #main").toggleClass('small');	
 		});
 		
-		$("#user .down").click(function() {
+		function setLeft() {
+			if($(window).width() <= 1180)
+				$("#left, #main").addClass('small');
+			else
+				$("#left, #main").removeClass('small');	
+		}
+		
+		$(window).resize(function() {
+			setLeft();
+		});
+		
+		setLeft();
+		
+		$("#user .down, #user img").click(function() {
 			$("#user ul").slideToggle();	
 		});
 		
