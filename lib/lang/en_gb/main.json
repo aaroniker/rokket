@@ -31,6 +31,10 @@
 	"try_again":		"Try again",
 	"logout":				"Logout",
 	"login":				"Login",
+	"install": 				"Install",
+	"uninstall": 		"Uninstall",
+	"activate": 			"Activate",
+	"deactivate": 		"Deactivate",
 	
 	#Server
 	"server":				"Server",
