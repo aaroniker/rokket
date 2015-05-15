@@ -30,7 +30,7 @@
                     	<?=layout::svg('down'); ?>
                     </a>
                     
-                    <span>0</span>
+                    <span class="num">0</span>
                     
                     <div class="clearfix"></div>
                     
@@ -38,13 +38,13 @@
                     	<li>
                         	<a href="?page=user&action=edit&id=<?=rp::get('user')->get('id'); ?>">
                             	<?=layout::svg('users'); ?>
-								<?=lang::get('profile'); ?>
+								<span><?=lang::get('profile'); ?></span>
                             </a>
                         </li>
                     	<li>
                         	<a href="?logout=1">
                             	<?=layout::svg('power'); ?>
-								<?=lang::get('logout'); ?>
+								<span><?=lang::get('logout'); ?></span>
                             </a>
                         </li>
                     </ul>
