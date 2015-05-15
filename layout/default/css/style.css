@@ -179,8 +179,9 @@ button.svg svg {
   border-radius: 50%;
   display: block;
   margin: 0 13px 0 0;
+  cursor: pointer;
 }
-#user span {
+#user .num {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -280,10 +281,6 @@ button.svg svg {
 }
 #main {
   margin-left: 230px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
 }
 #main.small {
   margin-left: 90px;
@@ -566,6 +563,74 @@ button.svg svg {
 #login .message {
   margin-bottom: 0;
 }
+#install .logo {
+  display: block;
+  width: 100%;
+  height: 80px;
+  margin: 10px 0 15px 0;
+  position: relative;
+}
+#install .logo svg {
+  width: 82px;
+  height: 82px;
+  margin: -41px 0 0 -41px;
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  fill: #272930;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#install .logo svg .flame {
+  fill: #da5247;
+}
+#install .logo svg:hover {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+#install .logo svg:hover .flame {
+  -webkit-animation: flame 2s infinite;
+  animation: flame 2s infinite;
+}
+#install .lang {
+  background: #fff;
+  position: absolute;
+  width: 260px;
+  margin: 0 0 0 -130px;
+  left: 50%;
+  top: 14%;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 16px rgba(0,0,0,0.2) outset;
+  -moz-box-shadow: 0 0 16px rgba(0,0,0,0.2) outset;
+  box-shadow: 0 0 16px rgba(0,0,0,0.2) outset;
+}
+#install .lang li {
+  margin: 2px 0 0 0;
+}
+#install .lang li a {
+  background: #f5f6f9;
+  line-height: 32px;
+  display: block;
+  color: #828793;
+  padding: 0 14px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+#install .lang li a:hover {
+  color: #31343b;
+}
 #left {
   width: 230px;
   position: absolute;
@@ -573,10 +638,6 @@ button.svg svg {
   top: 0;
   bottom: 0;
   background: #2f323a;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
 }
 #left.small {
   width: 90px;
@@ -609,10 +670,6 @@ button.svg svg {
 }
 #left.small #user {
   margin-bottom: 20px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
   padding: 12px;
 }
 #left.small #user img {
@@ -624,10 +681,6 @@ button.svg svg {
   border-radius: 50%;
   display: block;
   margin: 0 auto;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
 }
 #left.small #user span {
   width: 15px;
@@ -636,16 +689,25 @@ button.svg svg {
   display: block;
   float: none;
   position: absolute;
-  top: 17%;
-  right: 17%;
+  top: 13px;
+  right: 19px;
   background: #da5247;
   color: #fff;
   line-height: 15px;
   font-size: 9px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+}
+#left.small #user ul li a {
+  width: 100%;
+  height: 36px;
+}
+#left.small #user ul li a svg {
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  width: 16px;
+  height: 16px;
+}
+#left.small #user ul li a span {
+  display: none;
 }
 #left.small #user .down {
   display: none;

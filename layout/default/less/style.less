@@ -262,8 +262,9 @@ button {
 		.round(50%);
 		display: block;
 		margin: 0 13px 0 0;
+		cursor: pointer;
 	}
-	span {
+	.num {
 		.round(50%);
 		width: 20px;
 		height: 20px;
@@ -375,7 +376,6 @@ button {
 		margin-left: @left-small;
 	}
 	margin-left: @left;
-	.transition();
 }
 
 #head {
@@ -624,6 +624,68 @@ button {
 	.box-shadow (0, 0, 16px, 0.2);
 }
 
+#install {
+	.logo {
+		svg {
+			.flame {
+				fill: @primary;
+			}
+			&:hover {
+				.flame {
+					-webkit-animation: flame 2s infinite;
+					animation: flame 2s infinite;
+				}
+				-webkit-animation-name: rotate; 
+				-webkit-animation-duration: 1s; 
+				-webkit-animation-iteration-count: infinite;
+				-webkit-animation-timing-function: ease-in-out;
+				animation-name: rotate; 
+				animation-duration: 1s; 
+				animation-iteration-count: infinite;
+				animation-timing-function: ease-in-out;
+			}
+			width: 82px;
+			height: 82px;
+			margin: -41px 0 0 -41px;
+			position: absolute;
+			display: block;
+			left: 50%;
+			top: 50%;
+			fill: @darker;
+			.rotation(45deg);
+		}
+		display: block;
+		width:100%;
+		height: 80px;
+		margin: 10px 0 15px 0;
+		position: relative;
+	}
+	.lang {
+		li {
+			a {
+				&:hover {
+					color: @font-dark;
+				}
+				background: @light;
+				line-height: 32px;
+				display: block;
+				color: @font;
+				padding: 0 14px;
+				.transition();
+			}
+			margin: 2px 0 0 0;
+		}
+		background: @white;
+		position: absolute;
+		width: 260px;
+		margin: 0 0 0 -130px;
+		left: 50%;
+		top: 14%;
+		padding: @space-small;
+		.box-shadow (0, 0, 16px, 0.2);
+	}
+}
+
 #left {
 	&.small {
 		h4 {
@@ -666,7 +728,6 @@ button {
 				.round(50%);
 				display: block;
 				margin: 0 auto;
-				.transition();
 			}
 			span {
 				width: 15px;
@@ -675,13 +736,29 @@ button {
 				display: block;
 				float: none;
 				position: absolute;
-				top: 17%;
-				right: 17%;
+				top: 13px;
+				right: 19px;
 				background: @primary;
 				color: @white;
 				line-height: 15px;
 				font-size: 9px;
-				.transition();
+			}
+			ul {
+				li {
+					a {
+						svg {
+							left: 50%;
+							margin: -8px 0 0 -8px;
+							width: 16px;
+							height: 16px;
+						}
+						span {
+							display: none;
+						}
+						width: 100%;
+						height: 36px;
+					}
+				}
 			}
 			.down {
 				display: none;
@@ -690,7 +767,6 @@ button {
 				display: none;
 			}
 			margin-bottom: 20px;
-			.transition();
 			padding: 12px;
 		}
 		width: @left-small;
@@ -826,7 +902,6 @@ button {
 	top: 0;
 	bottom: 0;
 	background: @dark;
-	.transition();
 }
 
 @-webkit-keyframes rotate {
