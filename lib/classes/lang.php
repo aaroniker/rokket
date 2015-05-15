@@ -18,8 +18,11 @@ class lang {
 		
 	}
 	
-	static public function get($name) {
+	static public function get($name, $lang = false) {
 		
+		if($lang)
+			return $lang[$name];
+			
 		if(isset(self::$langs[$name])) {
 			return self::$langs[$name];	
 		}
@@ -35,6 +38,22 @@ class lang {
 	static public function getLang() {
 		
 		return self::$lang;
+			
+	}
+	
+	static public function getLangs() {
+		
+		$dirs = [];
+		
+		$dir = new DirectoryIterator(dir::lang());
+		foreach ($dir as $fileinfo) {
+			if ($fileinfo->isDir() && !$fileinfo->isDot()) {
+				
+				$dirs[$fileinfo->getFilename()] = self::get('lang', self::loadLang(dir::lang($fileinfo->getFilename(), 'main.json')));
+			}
+		}
+		
+		return $dirs;
 			
 	}
 	
@@ -56,6 +75,8 @@ class lang {
 		} else {
 			self::$default = array_merge((array)$array,self:: $default);
 		}
+		
+		return self::$langs = $array;
 		
 	}
 	
