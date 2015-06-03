@@ -17,6 +17,7 @@
 	"description":			"Descrizione",
 	"access_denied":	"Accesso rifiutato!",
 	"page_not_found":	"Pagina non trovata",
+	"no_entries":				"Nessun risultato trovato",
 	
 	#Actions
 	"update":			"Aggiorna",
@@ -30,16 +31,40 @@
 	"try_again":		"Riprova",
 	"logout":				"Logout",
 	"login":				"Login",
+	"install": 				"Installa",
+	"uninstall": 		"Disinstalla",
+	"activate": 			"Attiva",
+	"deactivate": 		"Disattiva",
 	
 	#Server
 	"server":				"Server",
+	"server_add":	"Aggiungi server",
+	"port":					"Porta",
+	"variables":			"Variabili",
+	"choose_game_first":	"Scegli un gioco",
+	"choose_server": "Scegli un server",
+	"server_deleted": "Server rimosso",
+	"server_added": "Server aggiunto",
+	"server_installing": "Installazione...",
+	"server_not_installed": "Non ancora installato",
+	"server_install":	"Installazione server - potrebbe richiedere qualche minuto...",
+	"server_started":	"Server correttamente avviato",
+	"server_stopped":	"Server correttamente fermato",
+	"server_restart":	"Server correttamente riavviato",
 	
 	#Games
-	"games":			"Giochi",
-	
+	"game":			"Gioco",
+	"game_select":		"Seleziona un gioco",
+	"games":				"Giochi",
+
 	#User
 	"user":					"Utente",
+	"user_add":				"Aggiungi utente",
 	"user_edited":			"Utente modificato con successo",
+	"user_delete_own": "Non puoi eliminare il tuo stesso account!",
+	"choose_user": "Scegli un utente",
+	"user_deleted": "Utente eliminato",
+	"user_added": "Utente aggiunto",
 	"username":			"Username",
 	"profile":					"Profilo",
 	"email":					"Email",
@@ -47,6 +72,7 @@
 	"firstname":			"Nome",
 	"password":			"Password",
 	"only_change":		"Questa password e' criptata, inseriscine una nuova.",
+	"admin":	"Admin",
 	
 	#Settings
 	"settings":				"Impostazioni",
@@ -56,12 +82,52 @@
 	"clear_all":				"Pulisci tutto",
 	"delete_cache_success":		"Cache pulita con successo",
 	"generate_css_success":		"Nuovo style.css generato",
+	"logs":						"Logs",
+	"language":			"Linguaggio",
+	"lang_select":			"Seleziona linguagggio",
+	"settings_edited":	"Impostazioni modificate con successo",
+	"email_notifcation":"Notifiche Email",
+	"notifications":	"Notifiche",
+	"ip":				"IP",
 	
 	#Search
 	"search":				"Cerca",
 	
 	#Dashboard
 	"dashboard":			"Dashboard",
+	"distribution":			"Distro",
+	"latest_blog":			"Ultimi aggiornamenti",
+	"firmware":				"Firmware",
+	"hostname":				"Hostname",
+	"kernel":				"Kernel",
+	"ram_total":			"Totale %s",
+	"hdd_avail":			"%s disponibile",
+	"cpu_average":			"Average of %s cores",
+	"since_start":			"Dall'ultimo avvio",
+	"server_info":			"Info Server",
+	"ethernet":				"Ethernet",
+	"rokket_about":			"About Rokket",
+	"rokket_text":			"Rokket is a free open source webinterface for managing game servers - get more information about Rokket on our <a target=\"_blank\" href=\"http://rokket.info\">website</a>, Facebook or GitHub. This webinterface is still in beta status and not ready to be fully used...",
+	"visit_website":		"Visita il nostro sito web",
+
+	#Addon
+	"addons": "Addon",
+	"all_addons": "Tutti gli addon",
+	"addon_save_success": "Addon correttamente salvato",
+	"addon_install_first": "Installa l'addon \"%s\" ",
+	"addon_installed": "Installato",
+	"addon_not_installed": "Non installato",
+	"addon_actived": "Abilitato",
+	"addon_not_actived": "Disabilitato",
+	"addon_errors": "L'addon %s presenta i seguenti errori:<br />%s",
+	"addon_check_error": "%s::check could not check %s",
+	"addon_wrong_version": "La versione corrente e' %s, l'addon richiede la versione %s",
+	"addon_no_access": "Non hai i permessi per accedere a quest'area",
+	"addon_not_found": "L'addon %s non e' stato trovato<br />",
+	"addon_not_install_active": "L'addon %s deve essere installato e abilitato<br />",
+	"addon_need_version": "The addon %s must be present at least in version %s<br />",
+	"addon_deleted": "L'addon %s e' stato correttamente eliminato",
+	"addon_no_readme": "Non esiste il file README.md",
 	
 	#Login
 	"remember_login":		"Ricorda login",
@@ -79,6 +145,18 @@
 	"sql_result_error":				"Result of the query could not be created",
 	
 	#Extension
-	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function"
+	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function",
+
+	#Time
+	"years": 			"Anni",
+	"year": 			"Anno",
+	"days": 			"Giorni",
+	"day": 				"Giorno",
+	"hour":			"Ora",
+	"hours":			"Ore",
+	"minutes": 		"Minuti",
+	"minute": 		"Minuto",
+	"seconds": 	"Secondi",
+	"second": 		"Secondo"
 	
 }
