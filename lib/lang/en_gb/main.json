@@ -1,8 +1,8 @@
 {
-	
+
 	"lang": 						"English",
 	"dateformat":				"m/d/Y",
-	
+
 	#General
 	"yes":							"Yes",
 	"no":							"No",
@@ -11,14 +11,14 @@
 	"offline":						"Offline",
 	"action":						"Action",
 	"actions":					"Actions",
-	"title":							"Titel",
+	"title":							"Title",
 	"select":						"Choose",
 	"selected":					"Selected",
 	"description":			"Description",
 	"access_denied":	"Access denied!",
 	"page_not_found":	"Page not found",
 	"no_entries":				"No entries found",
-	
+
 	#Actions
 	"update":			"Update",
 	"create":				"Create",
@@ -35,13 +35,13 @@
 	"uninstall": 		"Uninstall",
 	"activate": 			"Activate",
 	"deactivate": 		"Deactivate",
-	
+
 	#Server
 	"server":				"Server",
 	"server_add":	"Add server",
 	"port":					"Port",
 	"variables":			"Variables",
-	"choose_game_first":	"Chosse a game first",
+	"choose_game_first":	"Choose a game first",
 	"choose_server": "Choose a server first",
 	"server_deleted": "Server deleted",
 	"server_added": "Server added",
@@ -51,12 +51,12 @@
 	"server_started":	"Server successfully started",
 	"server_stopped":	"Server successfully stopped",
 	"server_restart":	"Server restarted successfully",
-	
+
 	#Games
 	"game":					"Game",
 	"game_select":		"Select a game",
 	"games":				"Games",
-	
+
 	#User
 	"user":					"User",
 	"user_add":				"Add user",
@@ -69,11 +69,11 @@
 	"profile":					"Profile",
 	"email":					"Email",
 	"rights":					"Rights",
-	"firstname":			"Firstname",
+	"firstname":			"First name",
 	"password":			"Password",
 	"only_change":		"This is the encrypted password, simply enter a new one.",
 	"admin":					"Admin",
-	
+
 	#Settings
 	"settings":				"Settings",
 	"general":				"General",
@@ -89,10 +89,10 @@
 	"email_notifcation":"Email notification",
 	"notifications":	"Notifications",
 	"ip":				"IP",
-	
+
 	#Search
 	"search":				"Search",
-	
+
 	#Dashboard
 	"dashboard":			"Dashboard",
 	"distribution":			"Distribution",
@@ -107,46 +107,46 @@
 	"server_info":			"Server information",
 	"ethernet":				"Ethernet",
 	"rokket_about":			"About Rokket",
-	"rokket_text":			"Rokket is a free open source webinterface for managing game servers - get more information about Rokket on our <a target=\"_blank\" href=\"http://rokket.info\">website</a>, Facebook or GitHub. This webinterface is still in beta status and not ready to be fully used...",
+	"rokket_text":			"Rokket is a free open source web interface for managing game servers - get more information about Rokket on our <a target=\"_blank\" href=\"http://rokket.info\">website</a>, Facebook or GitHub. This web interface is still in beta status and not ready to be fully used...",
 	"visit_website":		"Visit our website",
-	
+
 	#Addon
-	"addons": "Addons",
-	"all_addons": "All addons",
-	"addon_save_success": "Addon successfully saved",
-	"addon_install_first": "Please install the addon \"%s\" first",
+	"addons": "Add-ons",
+	"all_addons": "All add-ons",
+	"addon_save_success": "Add-on successfully saved",
+	"addon_install_first": "Please install the add-on \"%s\" first",
 	"addon_installed": "Installed",
 	"addon_not_installed": "Not installed",
 	"addon_actived": "Enabled",
 	"addon_not_actived": "Not enabled",
-	"addon_errors": "The addon %s has the following error:<br />%s",
+	"addon_errors": "The add-on %s has the following error:<br />%s",
 	"addon_check_error": "%s::check could not check %s",
-	"addon_wrong_version": "The current version is %s, the addon needs version %s",
+	"addon_wrong_version": "The current version is %s, the add-on needs version %s",
 	"addon_no_access": "You have no access to this area",
-	"addon_not_found": "The addon %s was not found<br />",
-	"addon_not_install_active": "The addon %s must be installed and enabled<br />",
-	"addon_need_version": "The addon %s must be present at least in version %s<br />",
-	"addon_deleted": "The addon %s was successfully deleted",
+	"addon_not_found": "The add-on %s was not found<br />",
+	"addon_not_install_active": "The add-on %s must be installed and enabled<br />",
+	"addon_need_version": "The add-on %s must be present at least in version %s<br />",
+	"addon_deleted": "The add-on %s was successfully deleted",
 	"addon_no_readme": "No README.md exists",
-	
+
 	#Login
 	"remember_login":		"Remember login",
 	"fill_out_both":				"Please fill out both fields",
 	"wrong_pw":					"Wrong password",
 	"email_not_found":		"Email <i>%s</i> not found",
 	"logged_out":				"Successfully logged out",
-	
+
 	#SSH
 	"ssh_login_failed":			"SSH login failed",
-	
+
 	#SQL
 	"sql_query_error":				"Query could not be executed<pre>%s</pre>Error: %s",
 	"sql_result_invalid_type":	"%s::result expected result as $type MYSQLI_NUM, MYSQLI_ASSOC or MYSQLI_BOTH",
 	"sql_result_error":				"Result of the query could not be created",
-	
+
 	#Extension
 	"extension_callable_func":	"%s::add expected as 2 Parameters of an existing function",
-	
+
 	#Time
 	"years": 			"Years",
 	"year": 			"Year",
@@ -158,5 +158,5 @@
 	"minute": 		"Minute",
 	"seconds": 	"Seconds",
 	"second": 		"Second"
-	
+
 }
