@@ -1,6 +1,7 @@
 {
 	
 	"lang": 						"English",
+	"code":							"",
 	"dateformat":				"m/d/Y",
 	
 	#General
@@ -35,6 +36,13 @@
 	"uninstall": 		"Uninstall",
 	"activate": 			"Activate",
 	"deactivate": 		"Deactivate",
+	
+	#Install
+	"database":				"Database",
+	"host":					"Host",
+	"prefix":				"Prefix",
+	"db_not_correct":		"Database data not correct",
+	"show_errors":			"Show errors",
 	
 	#Server
 	"server":				"Server",

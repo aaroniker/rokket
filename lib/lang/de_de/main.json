@@ -1,6 +1,7 @@
 {
 	
 	"lang": 						"Deutsch",
+	"code":							"de",
 	"dateformat":				"d.m.Y",
 	
 	#General
@@ -35,6 +36,13 @@
 	"uninstall": 		"Deinstallieren",
 	"activate": 			"Aktivieren",
 	"deactivate": 		"Deaktivieren",
+	
+	#Install
+	"database":				"Datenbank",
+	"host":					"Host",
+	"prefix":				"Prefix",
+	"db_not_correct":		"Datenbank-Daten nicht korrekt",
+	"show_errors":			"Zeige Fehler",
 	
 	#Server
 	"server":				"Server",
