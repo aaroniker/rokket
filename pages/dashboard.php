@@ -164,20 +164,7 @@
     	<h2><?=lang::get('latest_blog'); ?></h2>
     
         <div class="timeline">
-            <div class="item">
-            	<div class="circle"></div>
-            	<div class="text">
-            		<p><a href="">We have a timeline item</a></p>
-                    <small>25.0.4.2015</small>
-            	</div>
-        	</div>
-            <div class="item">
-            	<div class="circle"></div>
-            	<div class="text">
-            		<p><a href="">We have a timeline item</a></p>
-                    <small>25.0.4.2015</small>
-            	</div>
-        	</div>
+            <?=rp::getBlog(); ?>
         </div>
     
     </div>
