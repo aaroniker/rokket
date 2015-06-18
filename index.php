@@ -74,7 +74,7 @@ if(!is_null($error)) {
 layout::addNav(lang::get('dashboard'), 'dashboard', 'home', ['refresh'], true);
 layout::addNav(lang::get('settings'), 'settings', 'settings', [], false);
 
-layout::addNav(lang::get('server'), 'server', 'list', ['add'], true);
+layout::addNav(lang::get('server'), 'server', 'list', ['add', 'games'], true);
 layout::addNav(lang::get('addons'), 'addons', 'alt', [], true);
 layout::addNav(lang::get('user'), 'user', 'users', ['add'], true);
 
