@@ -71,6 +71,41 @@ class rp {
 		
 	}
 	
+	static public function getBlog() {
+		
+		$cacheFile = cache::getFileName(0, 'rpBlog');
+		
+		// every 12 hours
+		if(cache::exist($cacheFile, 43200)) {
+			
+			$content = json_decode(cache::read($cacheFile), true);
+				
+		} else {
+		
+			$content = apiserver::getBlogFile();
+			
+			cache::write($content, $cacheFile);
+			
+		}
+			
+		$return = [];
+		foreach($content as $blog) {
+			
+			$return[] = '
+					<div class="item">
+						<div class="circle"></div>
+						<div class="text">
+							<p><a target="_blank" href="'.$blog['link'].'">'.$blog['name'].'</a></p>
+							<small>'.date(lang::get('dateformat'), strtotime($blog['date'])).'</small>
+						</div>
+					</div>
+					';			
+		}
+		
+		return implode(PHP_EOL, $return);
+		
+	}
+	
 }
 
 ?>
