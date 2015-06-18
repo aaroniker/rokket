@@ -16,7 +16,7 @@ class ssh {
 		
 		$this->ssh = new Net_SSH2($host);
 		
-		if (!$this->ssh->login($user, $pass)) {
+		if(!$this->ssh->login($user, $pass)) {
 		    echo message::danger(lang::get('ssh_login_failed'), false);
 			return false;
 		}
@@ -29,6 +29,12 @@ class ssh {
 		
 		return $this->ssh->exec($cmd);
 		
+	}
+	
+	public function login($user, $pass) {
+		
+		return $this->ssh->login($user, $pass);
+	
 	}
 	
 	public function write($cmd) {
