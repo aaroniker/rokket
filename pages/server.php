@@ -199,7 +199,7 @@
 	if($action == 'install' && $id) {
 		$server = new server($id);
 		$server->install();
-		$return = message::success(lang::get('server_install'));
+		echo message::success(lang::get('server_install'));
 	}
 		
 	if(ajax::is()) {
@@ -222,7 +222,7 @@
 	
 	$table = new table();
 		
-	$table->addCollsLayout('25, 32%, *, 70, 170');
+	$table->addCollsLayout('25, 32%, *, 70, 190');
 	
 	$table->addRow()
 		->addCell("
