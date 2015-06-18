@@ -129,7 +129,7 @@
             </div>
         </div>
         
-        <button type="submit" name="send"><?=lang::get('apply'); ?></button>
+        <button type="submit" class="mbt15" name="send"><?=lang::get('apply'); ?></button>
     
     </div>
                 
