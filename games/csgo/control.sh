@@ -34,6 +34,8 @@ port="{{port}}"
 sourcetvport="{{sourcetvport}}"
 clientport="{{clientport}}"
 ip="{{ip}}"
+updateonstart="no"
+
 # Optional: Workshop Parameters
 # https://developer.valvesoftware.com/wiki/CSGO_Workshop_For_Server_Operators
 # To get an authkey visit - http://steamcommunity.com/dev/apikey
@@ -99,7 +101,7 @@ if [ ! -f "${rootdir}/functions/${functionfile}" ]; then
 	fi
 	cd functions
 	echo -e "loading ${functionfile}...\c"
-	wget -N --no-check-certificate /dev/null https://raw.githubusercontent.com/dgibbs64/linuxgsm/master/functions/${functionfile} 2>&1 | grep -F HTTP | cut -c45-
+	wget -N /dev/null https://raw.githubusercontent.com/dgibbs64/linuxgsm/master/functions/${functionfile} 2>&1 | grep -F HTTP | cut -c45-
 	chmod +x "${functionfile}"
 	cd "${rootdir}"
 	sleep 1

@@ -27,6 +27,7 @@ port="{{port}}"
 sourcetvport="{{sourcetvport}}"
 clientport="{{clientport}}"
 ip="{{ip}}"
+updateonstart="no"
 
 # https://developer.valvesoftware.com/wiki/Command_Line_Options#Source_Dedicated_Server
 fn_parms(){
@@ -82,7 +83,7 @@ if [ ! -f "${rootdir}/functions/${functionfile}" ]; then
 	fi
 	cd functions
 	echo -e "loading ${functionfile}...\c"
-	wget -N --no-check-certificate /dev/null https://raw.githubusercontent.com/dgibbs64/linuxgsm/master/functions/${functionfile} 2>&1 | grep -F HTTP | cut -c45-
+	wget -N /dev/null https://raw.githubusercontent.com/dgibbs64/linuxgsm/master/functions/${functionfile} 2>&1 | grep -F HTTP | cut -c45-
 	chmod +x "${functionfile}"
 	cd "${rootdir}"
 	sleep 1
