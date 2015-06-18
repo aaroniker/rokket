@@ -13,6 +13,12 @@
 	
 	autoload::register();
 	autoload::addDir(dir::classes('helper'));
+
+	set_include_path(get_include_path().PATH_SEPARATOR.'../lib/vendor/phpseclib');
+	include_once('Net/SSH2.php');
+	include_once('Net/SFTP.php');
+	
+	define('NET_SSH2_LOGGING', NET_SSH2_LOG_COMPLEX);
 	
 	new rp();
 				
@@ -54,6 +60,10 @@
 	ob_end_clean();
 	
 	layout::addNav(lang::get('choose_lang'), 'lang', '', [], true);
+	layout::addNav(lang::get('database'), 'database', '', [], true);
+	layout::addNav(lang::get('server'), 'server', '', [], true);
+	layout::addNav(lang::get('user'), 'user', '', [], true);
+	layout::addNav(lang::get('finish'), 'finish', '', [], true);
 	
 	rp::add('content', $content);
 	
