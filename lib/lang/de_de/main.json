@@ -43,6 +43,12 @@
 	"prefix":				"Prefix",
 	"db_not_correct":		"Datenbank-Daten nicht korrekt",
 	"show_errors":			"Zeige Fehler",
+	"install_success":		"Rokket wurde erfolgreich installiert und kann nun verwendet werden.",
+	"install_delete":		"Bitte <strong>löschen</strong> Sie den Installations-Ordner \"/install\"!",
+	"visit_admin":			"Admin Login",
+	"rokket_website":		"Rokket Webseite",
+	"choose_lang":			"Sprache wählen",
+	"finish":				"Fertig",
 	
 	#Server
 	"server":				"Server",
