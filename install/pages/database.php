@@ -41,6 +41,62 @@
 						rp::add('DB', $DB, true);
 						rp::save();
 						
+						$DB = rp::get('DB');
+						sql::connect($DB['host'], $DB['user'], $DB['password'], $DB['database']);
+						
+						unset($DB);
+						
+						$sql = new sql();
+						$sql->query('DROP TABLE IF EXISTS `'.sql::table('addons').'`');
+						$sql->query('CREATE TABLE `'.sql::table("addons").'` (
+							`id` int(11) unsigned NOT NULL,
+							`name` varchar(255) NOT NULL,
+							`active` int(1) NOT NULL,
+							`install` int(1) NOT NULL
+							) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;');
+						
+						$sql = new sql();
+						$sql->query('DROP TABLE IF EXISTS `'.sql::table('server').'`');
+						$sql->query('CREATE TABLE `'.sql::table("server").'` (
+							`id` int(11) NOT NULL,
+							`gameID` varchar(255) NOT NULL,
+							`name` varchar(255) NOT NULL,
+							`port` int(5) NOT NULL,
+							`status` varchar(255) NOT NULL
+							) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;');
+						
+						$sql = new sql();
+						$sql->query('DROP TABLE IF EXISTS `'.sql::table('user').'`');
+						$sql->query('CREATE TABLE `'.sql::table("user").'` (
+							`id` int(11) NOT NULL,
+							`firstname` varchar(255) NOT NULL,
+							`name` varchar(255) NOT NULL,
+							`username` varchar(255) NOT NULL,
+							`email` varchar(255) NOT NULL,
+							`password` varchar(255) NOT NULL,
+							`salt` varchar(255) NOT NULL,
+							`admin` int(11) NOT NULL,
+							`perms` varchar(255) NOT NULL
+							) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;');
+							
+						$sql->query('ALTER TABLE `'.sql::table('addons').'`
+							ADD PRIMARY KEY (`id`);');
+							
+						$sql->query('ALTER TABLE `'.sql::table('server').'`
+							ADD PRIMARY KEY (`id`);');
+							
+						$sql->query('ALTER TABLE `'.sql::table('user').'`
+							ADD PRIMARY KEY (`id`);');
+							
+						$sql->query('ALTER TABLE `'.sql::table('addons').'`
+							MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;');
+							
+						$sql->query('ALTER TABLE `'.sql::table('server').'`
+							MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;');
+							
+						$sql->query('ALTER TABLE `'.sql::table('user').'`
+							MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;');
+										
 						header('Location: ?page=server');
 						exit();
 					}
