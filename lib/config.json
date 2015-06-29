@@ -3,7 +3,7 @@
     "url": "http:\/\/",
     "version": "0.4",
     "setup": true,
-    "debug": true,
+    "debug": false,
     "cache": false,
     "logs": 1,
     "emailNot": null,
