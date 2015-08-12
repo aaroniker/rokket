@@ -3,7 +3,6 @@
 # Server Management Script
 # Author: Daniel Gibbs
 # Website: http://danielgibbs.co.uk
-# Version: 210115
 
 #### Variables ####
 
@@ -59,7 +58,7 @@ gamename="Counter Strike: Global Offensive"
 engine="source"
 
 # Directories
-rootdir="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )"
+rootdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 selfname="$(basename $0)"
 lockselfname=".${servicename}.lock"
 filesdir="${rootdir}/serverfiles"
@@ -69,7 +68,7 @@ executable="./srcds_run"
 servercfgdir="${systemdir}/cfg"
 servercfg="${servicename}.cfg"
 servercfgfullpath="${servercfgdir}/${servercfg}"
-defaultcfg="${servercfgdir}/server.cfg"
+servercfgdefault="${servercfgdir}/server.cfg"
 backupdir="${rootdir}/backups"
 
 # Server Details
@@ -104,7 +103,6 @@ if [ ! -f "${rootdir}/functions/${functionfile}" ]; then
 	wget -N /dev/null https://raw.githubusercontent.com/dgibbs64/linuxgsm/master/functions/${functionfile} 2>&1 | grep -F HTTP | cut -c45-
 	chmod +x "${functionfile}"
 	cd "${rootdir}"
-	sleep 1
 fi
 source "${rootdir}/functions/${functionfile}"
 }
