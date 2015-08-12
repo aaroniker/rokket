@@ -220,7 +220,8 @@ class server {
 		
 		switch($type) {
 			case 'install':
-			$ssh->exec("cd $id; ./control.sh auto-install  > /dev/null &");
+			#$ssh->exec("cd $id; ./control.sh auto-install >> ~/debug.log 2>&1 & /n");
+			$ssh->exec("cd $id; ./control.sh auto-install >> /dev/null 2>&1 & /n");
 			$sql->addPost('status', 0);
 			break;
 			case 'start':
